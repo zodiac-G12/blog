@@ -35,7 +35,6 @@ export default {}
 
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=PT+Serif|Open+Sans|Bevan|Spectral+SC|Ubuntu+Mono|Black+Ops+One|Bungee+Inline|Bungee+Shade&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/gruvbox-dark.min.css');
 
 /* 縦長 */

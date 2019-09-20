@@ -19,7 +19,8 @@
     "highlight.js": "^9.15.10",
     "marked": "^0.7.0",
     "moment-timezone": "^0.5.26",
-    "nuxt": "^2.9.2"
+    "nuxt": "^2.9.2",
+    "nuxt-webfontloader": "^1.1.0"
   },
   "devDependencies": {
     "babel-plugin-import": "^1.12.1",
