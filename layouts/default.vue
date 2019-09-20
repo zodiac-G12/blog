@@ -58,7 +58,8 @@ export default {}
 html, body{
     margin: 0;
     padding: 0;
-    font-family: "PT Serif","Ubuntu Mono", monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    font-family: "PT Serif","Ubuntu Mono", 'Bungee Shade', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: var(--font-size);
     word-break : break-all;
 }
@@ -67,6 +68,13 @@ h1,h2,h3,h4{
     margin: 0;
     text-align: center;
     color: black;
+}
+
+a{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .title{
