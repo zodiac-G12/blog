@@ -1,24 +1,20 @@
 <template>
     <div>
-        <div class="black-head">
-            <h1 class="title" style="line-height:15vh;">ZODIAC BLOG</h1>
-            <h4 style="line-height:1vh;color:snow;">~ 技術的な防備録 ~</h4>
-        </div>
+        <default-header></default-header>
         <main style="margin:2vw;color:black;height:55vh">
-        <h3 style="margin-top:2vh;">このブログはNuxt.jsを使っています。 - {{now}}</h3>
+        <h3 style="margin-top:2vh;">HOME - {{now}}</h3>
             <b>
                 <font-awesome-icon class="icon" style="color:midnightblue;" :icon="['fab', 'linux']" /> 
-                    ＜なぜNuxtを選んだのか？
+                    ＜ ここはホーム。
             </b>
-            <a-divider style="background:black;" type="horizontal"/>
-                <p><font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'angular']" /> 
-                    ＜なんとなくですね。SEO的にどうなのかしらと。</p>
+            <b style="display:block;margin-top:5vh;">
+                <font-awesome-icon class="icon" style="color:tomato;" :icon="['fab', 'linux']" /> 
+                    ＜ Blogを見ますか？
+            </b>
+            <center><a onclick="location.href=location.href+(location.href[location.href.length-1]=='/'?'':'/')+'2019-09-20'">BLOGをみる</a></center>
+            <center><a onclick="location.href=location.href+(location.href[location.href.length-1]=='/'?'':'/')+'config'">このページについて</a></center>
         </main>
-        <footer class="foot">
-            <font-awesome-icon class="icon" style="color:gold;" :icon="['fab', 'twitter-square']" /> 
-            <font-awesome-icon class="icon" style="color:gold;" :icon="['fab', 'github-square']" /> 
-            <p style="color:snow;">&copy; ZODIAC-G12 {{now}}</p>
-        </footer>
+        <default-footer></default-footer>
     </div>
 </template>
 
@@ -26,12 +22,17 @@
 <script>
 
 import moment from 'moment-timezone';
+import defaultHeader from '~/components/default-header';
+import defaultFooter from '~/components/default-footer';
 
 export default{
     data: function() {
         return {
             now: moment().tz("Asia/Tokyo").format("ll"),
         }
+    },
+    components: {
+        defaultFooter, defaultHeader
     }
 }
 

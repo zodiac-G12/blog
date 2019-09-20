@@ -13,14 +13,18 @@ import { Divider } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
 Vue.use(Divider);
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
-import { faAngular, faTwitterSquare, faGithubSquare, faLinux } from '@fortawesome/free-brands-svg-icons';
+import { faUserSecret, faIgloo, faBath } from '@fortawesome/free-solid-svg-icons';
+import { faAngular, faTwitterSquare, faGithubSquare, faLinux, faVuejs, faAws } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 library.add(faUserSecret);
 library.add(faAngular);
 library.add(faTwitterSquare);
 library.add(faGithubSquare);
 library.add(faLinux);
+library.add(faIgloo);
+library.add(faVuejs);
+library.add(faAws);
+library.add(faBath);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -32,6 +36,7 @@ export default {}
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=PT+Serif|Open+Sans|Bevan|Spectral+SC|Ubuntu+Mono|Black+Ops+One|Bungee+Inline|Bungee+Shade&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/gruvbox-dark.min.css');
 
 /* 縦長 */
 @media screen and (orientation: portrait) {
@@ -50,12 +55,12 @@ export default {}
     }
 }
 
-
 html, body{
     margin: 0;
     padding: 0;
     font-family: "PT Serif","Ubuntu Mono", monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: var(--font-size);
+    word-break : break-all;
 }
 
 h1,h2,h3,h4{
@@ -77,6 +82,12 @@ h1,h2,h3,h4{
     color: snow;
 }
 
+.small-icon{
+    font-size: calc(var(--font-size)*1);
+    width: calc(var(--font-size)*1);
+    height: calc(var(--font-size)*1);
+}
+
 .icon{
     font-size: calc(var(--font-size)*1.5);
     width: calc(var(--font-size)*1.5);
@@ -90,6 +101,7 @@ h1,h2,h3,h4{
     background: black;
     text-align: center;
     padding-top: 3vh;
+    bottom: 0;
 }
 
 </style>
