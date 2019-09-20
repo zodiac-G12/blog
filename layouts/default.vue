@@ -61,11 +61,11 @@ html, body{
     font-family: "PT Serif","Ubuntu Mono", 'Bungee Shade', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: var(--font-size);
     word-break : break-all;
+    color: black;
 }
 
 h1,h2,h3,h4{
-    margin: 0;
-    text-align: center;
+    /* margin: 0; */
     color: black;
 }
 
@@ -77,6 +77,7 @@ a{
 }
 
 .title{
+    text-align: center;
     font-family: 'Bungee Shade';
     color: white;
 }

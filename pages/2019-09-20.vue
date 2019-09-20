@@ -2,35 +2,11 @@
     <div>
         <default-header></default-header>
         <pankuz></pankuz>
-        <main style="margin:2vw;color:black;">
-        <h3>
-                AWS ALB のメンテナンス閉塞をShellスクリプト化した
+        <h3 style="margin-top:5vh;background:indigo;color:snow;padding:2vw;text-align:center;">AWS ALB のメンテナンス閉塞をShellスクリプト化した
             <font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'aws']" />
         </h3>
-            <a-divider style="background:black;" type="horizontal"/>
-            <b>
-                <font-awesome-icon class="icon" style="color:midnightblue;" :icon="['fab', 'linux']" /> 
-                    ＜ AWS ALB ってなんですか？
-            </b>
-            <p style="margin-top:5vh;"><font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'angular']" /> 
-                ＜<a href="https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/introduction.html">
-                    https://docs.aws.amazon.com/ja_jp/elasticloadbalancing/latest/application/introduction.html
-                </a>
-            </p>
-            <b style="margin-top:5vh;">
-                <font-awesome-icon class="icon" style="color:midnightblue;" :icon="['fab', 'linux']" /> 
-                    ＜ なぜシェルスクリプト化したんですか？
-            </b>
-            <p style="margin-top:5vh;"><font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'angular']" /> 
-                ＜ 教える筋合いないです。仮にそんな方には説明してもわからないと思います。
-            </p>
-            <h3>
-                いきなりコード
-                <font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fas', 'bath']" />
-            </h3>
-            <a-divider style="background:black;" type="horizontal"/>
-            <pre v-html="heisokuview"></pre>
-            <b>本当にごめんなさい。今度詳細記事書きます。</b>
+        <main style="padding:5vw;">
+            <div v-html="kiji"></div>
         </main>
         <default-footer></default-footer>
     </div>
@@ -50,8 +26,69 @@ export default{
     data: function() {
         return {
             now: moment().tz("Asia/Tokyo").format("ll"),
-            heisokuview: null,
-            heisoku: `
+            kiji: null,
+            prekiji:
+`
+## 動機
+
+- 効率化
+
+---
+
+## 初期設定
+
+- [AWS CLI](https://docs.aws.amazon.com/ja_jp/streams/latest/dev/kinesis-tutorial-cli-installation.html) および [jq](https://stedolan.github.io/jq/) がマシンにインストールされていることを確認。インストールされていなければインストール。
+
+\`\`\`sh
+$ aws --version
+aws-cli/1.16.215 Python/2.7.14 Linux/4.13.0-46-generic botocore/1.12.205
+\`\`\`
+
+
+\`\`\`sh
+$ jq --version
+jq-1.5-1-a5b5cbe
+\`\`\`
+
+- AWS CLI にアクセスキーを設定する
+> ⚠️ Default output format は **json** と絶対に全て小文字で入力すること。 Json や JSON では不可
+
+\`\`\`sh
+$ aws configure
+AWS Access Key ID [None]: {accessKeyId}
+AWS Secret Access Key [None]: {secretAccessKey}
+Default region name [None]: ap-northeast-1
+Default output format [None]: json
+\`\`\`
+
+- IAMユーザーが"maintenance"であること確認する
+
+\`\`\`sh
+$ aws iam list-users
+{
+    "Users": [
+        {
+             ⋮
+        },
+        {
+             "UserName": "maintenance",
+             ⋮
+        },
+             ⋮
+        }
+    ]
+}
+\`\`\`
+
+## 実践
+
+### ALBの閉塞(メンテナンス画面にする)
+
+- aws_alb_listener_dev_arn.json にAWS ALBのリスナーのARNを載っけときます。
+
+今回はALBが2つあって、それぞれに閉塞設定するというもので、api/v*直下アクセスのときはjson。
+其れ以外のときはHTMLを返すというものです。
+
 \`\`\`sh
 ####################################################################
 #
@@ -76,11 +113,7 @@ aws elbv2 create-rule \\
     --listener-arn $listener_one \\
     --conditions Field=path-pattern,Values="/api/v*" \\
     --priority 1 \\
-    --actions Type=fixed-response,FixedResponseConfig=
-    \\{"MessageBody=
-    '\\{\\"id\\":-5000,
-    \\"description\\":\\"ただいまメンテナンス中です。しばらくお待ちください\\"\\}',
-    StatusCode=$maintenance_statusCode,ContentType=application/json"\\} | tee tmp.json
+    --actions Type=fixed-response,FixedResponseConfig={"MessageBody='{\\"id\\":-5000, \\"description\\":\\"ただいまメンテナンス中です。しばらくお待ちください\\"}',StatusCode=$maintenance_statusCode,ContentType=application/json"} | tee tmp.json
 
 # ルールのARNを抽出(1個目)
 rule_three=$( cat tmp.json | jq '.Rules[0].RuleArn' )
@@ -89,11 +122,7 @@ aws elbv2 create-rule \\
     --listener-arn $listener_two \\
     --conditions Field=path-pattern,Values="api/v*" \\
     --priority 1 \\
-    --actions Type=fixed-response,FixedResponseConfig=
-    \\{"MessageBody=
-    '\\{\\"id\\":-5000,
-    \\"description\\":\\"ただいまメンテナンス中です。しばらくお待ちください\\"\\}'
-    ,StatusCode=$maintenance_statusCode,ContentType=application/json"\\} | tee tmp.json
+    --actions Type=fixed-response,FixedResponseConfig={"MessageBody='{\\"id\\":-5000, \\"description\\":\\"ただいまメンテナンス中です。しばらくお待ちください\\"}',StatusCode=$maintenance_statusCode,ContentType=application/json"} | tee tmp.json
 
 # ルールのARNを抽出(2個目)
 rule_four=$( cat tmp.json | jq '.Rules[0].RuleArn' )
@@ -105,10 +134,7 @@ aws elbv2 create-rule \\
     --listener-arn $listener_one \\
     --conditions Field=path-pattern,Values="*" \\
     --priority 2 \\
-    --actions Type=fixed-response,FixedResponseConfig=
-    \\{"MessageBody=
-    <body><p>ただいまメンテナンス中です。しばらくお待ちください</p></body>
-    ,StatusCode=$maintenance_statusCode,ContentType=text/html"\\} | tee tmp.json
+    --actions Type=fixed-response,FixedResponseConfig={"MessageBody=<body><p>ただいまメンテナンス中です。しばらくお待ちください</p></body>,StatusCode=$maintenance_statusCode,ContentType=text/html"} | tee tmp.json
 
 # ルールのARNを抽出(3個目)
 rule_one=$( cat tmp.json | jq '.Rules[0].RuleArn' )
@@ -117,10 +143,7 @@ aws elbv2 create-rule \\
     --listener-arn $listener_two \\
     --conditions Field=path-pattern,Values="*" \\
     --priority 2 \\
-    --actions Type=fixed-response,FixedResponseConfig=
-    \\{"MessageBody=
-    <body><p>ただいまメンテナンス中です。しばらくお待ちください</p></body>,
-    StatusCode=$maintenance_statusCode,ContentType=text/html"\\} | tee tmp.json
+    --actions Type=fixed-response,FixedResponseConfig={"MessageBody=<body><p>ただいまメンテナンス中です。しばらくお待ちください</p></body>,StatusCode=$maintenance_statusCode,ContentType=text/html"} | tee tmp.json
 
 # ルールのARNを抽出(4個目)
 rule_two=$( cat tmp.json | jq '.Rules[0].RuleArn' )
@@ -130,22 +153,50 @@ rule_two=$( cat tmp.json | jq '.Rules[0].RuleArn' )
 rm tmp.json
 
 # ルールのARNの保存形式
-rule_arn_json="\\{
+rule_arn_json="{
     \\"development_alb_rule_arns\\": [
-        \\{\\"rule_one\\": $rule_one\\},
-        \\{\\"rule_two\\": $rule_two\\},
-        \\{\\"rule_three\\": $rule_three\\},
-        \\{\\"rule_four\\": $rule_four\\}
+        {\\"rule_one\\": $rule_one},
+        {\\"rule_two\\": $rule_two},
+        {\\"rule_three\\": $rule_three},
+        {\\"rule_four\\": $rule_four}
     ]
-\\}"
+}"
 
 # ルールのARNのjsonを新規作成する
 echo $rule_arn_json | tee aws_alb_rule_dev_arn.json
 
 echo maintenance start.
-
 \`\`\`
-            `
+
+### ALBの閉塞解除(メンテナンス画面解除)
+
+\`\`\`sh
+# AWS ALBのリスナーのルールのARNのjsonファイル名
+json="aws_alb_rule_dev_arn.json"
+
+# ルールのARN
+rule_one=$( cat $json | jq '.[]' | jq '.[0]' | jq -r '.[]')
+rule_two=$( cat $json | jq '.[]' | jq '.[1]' | jq -r '.[]')
+rule_three=$( cat $json | jq '.[]' | jq '.[2]' | jq -r '.[]')
+rule_four=$( cat $json | jq '.[]' | jq '.[3]' | jq -r '.[]')
+
+# ルールの削除によってメンテナンス表示の解除
+aws elbv2 delete-rule --rule-arn $rule_one
+aws elbv2 delete-rule --rule-arn $rule_two
+aws elbv2 delete-rule --rule-arn $rule_three
+aws elbv2 delete-rule --rule-arn $rule_four
+
+# ルールを削除したらファイルは不要なので削除する
+rm $json
+
+echo maintenance stopped.
+\`\`\`
+
+### 感想
+
+人間そんな簡単に死なない。
+
+`
         }
     },
     created: function () {
@@ -158,7 +209,16 @@ echo maintenance start.
     },
     mounted(){
         hljs.initHighlightingOnLoad();
-        this.heisokuview = marked(this.heisoku);
+        this.kiji = marked(this.escape(this.prekiji));
+    },
+    methods: {
+        escape(str) {
+            return str;
+            // return str.split("").map((c)=>{
+            //     if (["\\"].includes(c)) return `\${c}`;
+            //     else return c;
+            // }).join("")
+        }
     },
     components: {
         defaultFooter, defaultHeader, pankuz

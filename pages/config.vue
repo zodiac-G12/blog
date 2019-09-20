@@ -3,7 +3,7 @@
         <default-header></default-header>
         <pankuz></pankuz>
         <main style="margin:2vw;color:black;height:50vh">
-        <h3>このブログは
+        <h3 style="text-align:center;">このブログは
             <a href="https://ja.nuxtjs.org/">Nuxt.js</a>
             を使っています。 - {{now}}</h3>
             <a-divider style="background:black;" type="horizontal"/>

@@ -2,7 +2,7 @@
     <div>
         <default-header></default-header>
         <main style="margin:2vw;color:black;height:55vh">
-        <h3 style="margin-top:2vh;">HOME - {{now}}</h3>
+        <h3 style="margin-top:2vh;text-align:center;">HOME - {{now}}</h3>
             <b>
                 <font-awesome-icon class="icon" style="color:midnightblue;" :icon="['fab', 'linux']" /> 
                     ＜ ここはホーム。
