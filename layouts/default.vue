@@ -13,10 +13,11 @@ import { Divider } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
 Vue.use(Divider);
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUserSecret, faIgloo, faBath } from '@fortawesome/free-solid-svg-icons';
+import { faUserSecret, faIgloo, faBath, faHSquare } from '@fortawesome/free-solid-svg-icons';
 import { faAngular, faTwitterSquare, faGithubSquare, faLinux, faVuejs, faAws } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 library.add(faUserSecret);
+library.add(faHSquare)
 library.add(faAngular);
 library.add(faTwitterSquare);
 library.add(faGithubSquare);
@@ -62,6 +63,7 @@ html, body{
     font-size: var(--font-size);
     word-break : break-all;
     color: black;
+    background: darkgray;
 }
 
 h1,h2,h3,h4{

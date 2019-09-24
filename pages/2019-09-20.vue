@@ -2,11 +2,14 @@
     <div>
         <default-header></default-header>
         <pankuz></pankuz>
-        <h3 style="margin-top:5vh;background:indigo;color:snow;padding:2vw;text-align:center;">AWS ALB のメンテナンス閉塞をShellスクリプト化した
-            <font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'aws']" />
-        </h3>
         <main style="padding:5vw;">
-            <div v-html="kiji"></div>
+            <h3 style="box-shadow:5px 5px 0px 0px teal;background:steelblue;color:white;padding:2vw;text-align:center;">
+                <b style="border-bottom: dotted 3px crimson;">
+                    {{title}}
+                    <font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'aws']" />
+                </b>
+            </h3>
+            <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;" v-html="kiji"></div>
         </main>
         <default-footer></default-footer>
     </div>
@@ -25,7 +28,7 @@ import marked from 'marked';
 export default{
     data: function() {
         return {
-            now: moment().tz("Asia/Tokyo").format("ll"),
+            title: "AWS ALB のメンテナンス閉塞をShellスクリプト化した",
             kiji: null,
             prekiji:
 `

@@ -1,19 +1,19 @@
 <template>
     <div>
         <default-header></default-header>
-        <main style="margin:2vw;color:black;height:55vh">
-        <h3 style="margin-top:2vh;text-align:center;">HOME - {{now}}</h3>
-            <b>
-                <font-awesome-icon class="icon" style="color:midnightblue;" :icon="['fab', 'linux']" /> 
-                    ＜ ここはホーム。
-            </b>
-            <b style="display:block;margin-top:5vh;">
-                <font-awesome-icon class="icon" style="color:tomato;" :icon="['fab', 'linux']" /> 
-                    ＜ Blogを見ますか？
-            </b>
-            <center><a onclick="location.href=location.href+(location.href[location.href.length-1]=='/'?'':'/')+'2019-09-20'">BLOGをみる</a></center>
-            <center><a onclick="location.href=location.href+(location.href[location.href.length-1]=='/'?'':'/')+'config'">このページについて</a></center>
+        <main style="padding:5vw;">
+        <h3 style="box-shadow:5px 5px 0px 0px teal;background:steelblue;color:white;padding:2vw;text-align:center;">
+            <b>ブログ一覧</b>
+        </h3>
+        <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;">
+            <p v-if="list.length">
+                <p v-for="item in list">
+                ● <a style="color:crimson;" :href="item.date">[{{item.date}}] - {{item.title}} ({{item.category}})</a>
+                </p>
+            </p>
+        </div>
         </main>
+
         <default-footer></default-footer>
     </div>
 </template>
@@ -28,6 +28,10 @@ import defaultFooter from '~/components/default-footer';
 export default{
     data: function() {
         return {
+            list: [
+                {title:"AWS ALB のメンテナンス閉塞をShellスクリプト化した", date:"2019-09-20", category:"programming"},
+                {title:"午前四時です", date:"2019-09-25", category:"diary"},
+            ],
             now: moment().tz("Asia/Tokyo").format("ll"),
         }
     },
