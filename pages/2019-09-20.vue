@@ -4,7 +4,7 @@
         <pankuz></pankuz>
         <main style="padding:5vw;">
             <h3 style="box-shadow:5px 5px 0px 0px teal;background:steelblue;color:white;padding:2vw;text-align:center;">
-                <b style="border-bottom: dotted 3px crimson;">
+                <b class="midashi" style="border-bottom: dotted 3px crimson;">
                     {{title}}
                     <font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'aws']" />
                 </b>

@@ -80,8 +80,30 @@ a{
 
 .title{
     text-align: center;
-    font-family: 'Bungee Shade';
+    font-family: 'Bungee Inline';
     color: white;
+    line-height: 12vh;
+}
+
+.title span{
+    margin-right: -0.5vw;
+    animation: bakemono 10s ease-in-out infinite;
+}
+
+.title span:nth-of-type(1){ animation-delay: 0.0s; }
+.title span:nth-of-type(2){ animation-delay: 0.1s; }
+.title span:nth-of-type(3){ animation-delay: 0.2s; }
+.title span:nth-of-type(4){ animation-delay: 0.3s; }
+.title span:nth-of-type(5){ animation-delay: 0.4s; }
+.title span:nth-of-type(6){ animation-delay: 0.5s; }
+.title span:nth-of-type(7){ animation-delay: 0.6s; }
+.title span:nth-of-type(8){ animation-delay: 0.7s; }
+.title span:nth-of-type(9){ animation-delay: 0.8s; }
+.title span:nth-of-type(10){ animation-delay: 0.9s; }
+
+@keyframes bakemono{
+    0%{font-family: 'Bungee Inline';}
+    100%{font-family: 'Bungee Shade';}
 }
 
 .black-head{
@@ -90,6 +112,12 @@ a{
     background: black;
     margin: 0;
     color: snow;
+}
+
+.star{
+    color: gold;
+    position: fixed;
+    top: 7vh;
 }
 
 .small-icon{
@@ -112,6 +140,15 @@ a{
     text-align: center;
     padding-top: 3vh;
     bottom: 0;
+}
+
+.midashi{
+    animation: slidein 1s ease-in-out forwards;
+}
+
+@keyframes slidein{
+    0%{margin-left:-1vw;opacity:0;}
+    100%{margin-left:0;opacity:1;}
 }
 
 </style>

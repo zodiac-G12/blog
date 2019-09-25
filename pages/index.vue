@@ -3,7 +3,7 @@
         <default-header></default-header>
         <main style="padding:5vw;">
         <h3 style="box-shadow:5px 5px 0px 0px teal;background:steelblue;color:white;padding:2vw;text-align:center;">
-            <b>ブログ一覧</b>
+            <b class="midashi">ブログ一覧</b>
         </h3>
         <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;">
             <p v-if="list.length">
