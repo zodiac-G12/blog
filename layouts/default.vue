@@ -13,19 +13,11 @@ import { Divider } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
 Vue.use(Divider);
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUserSecret, faIgloo, faBath, faHSquare } from '@fortawesome/free-solid-svg-icons';
+import { faUserSecret, faIgloo, faBath, faHSquare, faClock, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faAngular, faTwitterSquare, faGithubSquare, faLinux, faVuejs, faAws } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-library.add(faUserSecret);
-library.add(faHSquare)
-library.add(faAngular);
-library.add(faTwitterSquare);
-library.add(faGithubSquare);
-library.add(faLinux);
-library.add(faIgloo);
-library.add(faVuejs);
-library.add(faAws);
-library.add(faBath);
+
+library.add(faUserSecret, faHSquare, faAngular, faTwitterSquare, faGithubSquare, faLinux, faIgloo, faVuejs, faAws, faBath, faClock, faEdit);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -92,14 +84,14 @@ a{
 
 .title span:nth-of-type(1){ animation-delay: 0.0s; }
 .title span:nth-of-type(2){ animation-delay: 0.1s; }
-.title span:nth-of-type(3){ animation-delay: 0.2s; }
-.title span:nth-of-type(4){ animation-delay: 0.3s; }
-.title span:nth-of-type(5){ animation-delay: 0.4s; }
-.title span:nth-of-type(6){ animation-delay: 0.5s; }
-.title span:nth-of-type(7){ animation-delay: 0.6s; }
-.title span:nth-of-type(8){ animation-delay: 0.7s; }
-.title span:nth-of-type(9){ animation-delay: 0.8s; }
-.title span:nth-of-type(10){ animation-delay: 0.9s; }
+.title span:nth-of-type(3){ animation-delay: 0.25s; }
+.title span:nth-of-type(4){ animation-delay: 0.45s; }
+.title span:nth-of-type(5){ animation-delay: 0.7s; }
+.title span:nth-of-type(6){ animation-delay: 1.0s; }
+.title span:nth-of-type(7){ animation-delay: 1.35s; }
+.title span:nth-of-type(8){ animation-delay: 1.75s; }
+.title span:nth-of-type(9){ animation-delay: 2.2s; }
+.title span:nth-of-type(10){ animation-delay: 2.7s; }
 
 @keyframes bakemono{
     0%{font-family: 'Bungee Inline';}

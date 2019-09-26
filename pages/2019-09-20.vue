@@ -3,10 +3,10 @@
         <default-header></default-header>
         <pankuz></pankuz>
         <main style="padding:5vw;">
-            <h3 style="box-shadow:5px 5px 0px 0px teal;background:steelblue;color:white;padding:2vw;text-align:center;">
+            <h3 style="box-shadow:5px 5px 0px 0px darkslategray;background:darkgreen;color:white;padding:2vw;text-align:center;">
                 <b class="midashi" style="border-bottom: dotted 3px crimson;">
                     {{title}}
-                    <font-awesome-icon class="icon" style="color:#fd7e14;" :icon="['fab', 'aws']" />
+                    <font-awesome-icon class="icon" style="color:darkorange;" :icon="['fab', 'aws']" />
                 </b>
             </h3>
             <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;" v-html="kiji"></div>
@@ -29,6 +29,7 @@ export default{
     data: function() {
         return {
             title: "AWS ALB のメンテナンス閉塞をShellスクリプト化した",
+            url: "https:zodiac-G12.github.io/blog/2019-09-20",
             kiji: null,
             prekiji:
 `
@@ -200,6 +201,14 @@ echo maintenance stopped.
 人間そんな簡単に死なない。
 
 `
+        }
+    },
+    head () {
+        return {
+            title: this.title,
+            meta: [
+                { hid: 'og:url', property: 'og:url', content: this.url },
+            ],
         }
     },
     created: function () {

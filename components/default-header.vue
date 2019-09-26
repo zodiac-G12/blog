@@ -12,7 +12,7 @@
             <span>O</span>
             <span>G</span>
         </h1>
-        <h4 style="line-height:1vh;color:snow;text-align:center;">~ 技術的な防備録 ~</h4>
+        <h4 style="line-height:1vh;color:snow;text-align:center;font-weight:bold;">~ 技術的な防備録 ~</h4>
     </div>
 </template>
 

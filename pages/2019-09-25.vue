@@ -3,10 +3,10 @@
         <default-header></default-header>
         <pankuz></pankuz>
         <main style="padding:5vw;">
-            <h3 style="box-shadow:5px 5px 0px 0px teal;background:steelblue;color:white;padding:2vw;text-align:center;">
+            <h3 style="box-shadow:5px 5px 0px 0px darkslategray;background:darkgreen;color:white;padding:2vw;text-align:center;">
                 <b class="midashi" style="border-bottom: dotted 3px crimson;">
                     {{title}}
-                    <font-awesome-icon class="icon" style="color:deeppink" :icon="['fas', 'user-secret']" />
+                    <font-awesome-icon class="icon" style="color:darkorange;" :icon="['fas', 'clock']" />
                 </b>
             </h3>
             <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;" v-html="kiji"></div>
@@ -29,10 +29,11 @@ export default{
     data: function() {
         return {
             title: "午前四時です",
+            url: "https:zodiac-G12.github.io/blog/2019-09-25",
             kiji: null,
             prekiji:
 `
-## ブログのデザインををリファクタしました
+## ブログのデザインをリファクタしました
 　大分インテリジェンスになったはずです。以前よりは。
 
 ## 懸念点
@@ -42,6 +43,14 @@ pages直下のfile内とindexで記事タイトル名2回宣言したくない�
 ディレクトリ内ファイル一覧とかVueは出来ないのか調べたい。
 やはり **fs** かしら。
 `
+        }
+    },
+    head () {
+        return {
+            title: this.title,
+            meta: [
+                { hid: 'og:url', property: 'og:url', content: this.url },
+            ],
         }
     },
     created: function () {
