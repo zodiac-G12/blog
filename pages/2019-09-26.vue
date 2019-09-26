@@ -64,13 +64,6 @@ SPAモードと言うか、 __"nuxt generate"__ で実行して、静的HTMLで�
 
 - [API: head プロパティ - Nuxt.js](https://qiita.com/amishiro/items/b7260116b282d2cf2756)
 - [nuxt.js(v2)でSEOに必要なmeta(OGP)を入れたい](https://ja.nuxtjs.org/api/configuration-head/)
-
-## 懸念点
-　改善したいところ。変数は２つ持ちたくない。
-pages直下のfile内とindexで記事タイトル名2回宣言したくない。
-帳尻合わなかったらどうする？そこまで慎重に見たくない。其れに間違えたらダサすぎる。
-ディレクトリ内ファイル一覧とかVueは出来ないのか調べたい。
-やはり **fs** かしら。
 `
         }
     },
