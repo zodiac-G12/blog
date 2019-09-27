@@ -50,6 +50,7 @@ pages直下のfile内とindexで記事タイトル名2回宣言したくない�
             title: this.title,
             meta: [
                 { hid: 'og:url', property: 'og:url', content: this.url },
+                { hid: 'og:title', property: 'og:title', content: `ZODIAC BLOG - ${this.title}` },
             ],
         }
     },
