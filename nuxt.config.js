@@ -18,6 +18,9 @@ export default {
         }
     },
     head: {
+        link: [
+            { rel: 'icon', type: 'image/x-icon', href: '/blog/favicon.ico' }
+        ],
         htmlAttrs: {
             prefix: 'og: http://ogp.me/ns#'
         },
