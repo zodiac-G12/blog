@@ -35,11 +35,11 @@ export default{
     data: function() {
         return {
             // TODO pages直下から自動で色々やりたい、Do you understand???
-            // TODO 新しい記事は｢new!｣とやりたい
             list: [
                 {title:"AWS ALB のメンテナンス閉塞をShellスクリプト化した", date:"2019-09-20", category:"programming"},
                 {title:"午前四時です", date:"2019-09-25", category:"diary"},
                 {title:"Nuxt.jsでSEOに関するmeta設定", date:"2019-09-26", category:"programming"},
+                {title:"gitでssh接続したときNuxt.jsのdeployがコケる", date:"2019-09-28", category:"programming"}
             ].reverse(), //古い記事上に来てどうすん
             now: moment().tz("Asia/Tokyo").format("ll"),
         }
