@@ -101,7 +101,7 @@ a{
 .black-head{
     width: 100vw;
     height: 20vh;
-    background: black;
+    background: linear-gradient(-45deg, black, darkslategray, black);
     margin: 0;
     color: snow;
 }
