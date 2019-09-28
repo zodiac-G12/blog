@@ -2,20 +2,29 @@
     <div>
         <default-header></default-header>
         <main style="padding:5vw;">
-        <h3 style="box-shadow:5px 5px 0px 0px darkslategray;background:darkgreen;color:white;padding:2vw;text-align:center;">
-            <b class="midashi">
-                ブログ一覧
-                <font-awesome-icon class="icon" style="color:darkorange;transform: translateY(5%);" :icon="['fas', 'edit']" />
-            </b>
-        </h3>
-        <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;">
-            <p v-if="list.length">
-                <p style="display:flex;" v-for="(item, index) in list">
-                    ● <a style="color:navy;font-weight:bold;" :href="item.date">[{{item.date}}] - {{item.title}} ({{item.category}})</a>
-                    <new-wave v-if="index==0"></new-wave>
+            <h3 style="box-shadow:5px 5px 0px 0px darkslategray;background:darkgreen;color:white;padding:2vw;text-align:center;">
+                <b class="midashi">
+                    ZODIAC-G12 のブログ一覧
+                    <font-awesome-icon class="icon" style="color:darkorange;transform: translateY(5%);" :icon="['fas', 'edit']" />
+                </b>
+            </h3>
+            <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;">
+                <p v-if="list.length">
+                    <p style="display:flex;" v-for="(item, index) in list">
+                        ● <a style="color:navy;font-weight:bold;" :href="item.date">[{{item.date}}] - {{item.title}} ({{item.category}})</a>
+                        <new-wave v-if="index==0"></new-wave>
+                    </p>
                 </p>
-            </p>
-        </div>
+            </div>
+            <h3 style="margin-top:5vh;box-shadow:5px 5px 0px 0px darkslategray;background:darkgreen;color:white;padding:2vw;text-align:center;">
+                <b class="midashi">
+                    ZODIAC-G12 の情報
+                    <font-awesome-icon class="icon" style="color:darkorange;transform: translateY(5%);" :icon="['fas', 'edit']" />
+                </b>
+            </h3>
+            <div style="box-shadow:5px 5px 0px 0px wheat;background:white;padding:5vw;">
+                <b>● HOME PAGE (<a href="https://zodiac-G12.github.io/homepage">https://zodiac-G12.github.io/homepage</a>)</b>
+            </div>
         </main>
 
         <default-footer></default-footer>
