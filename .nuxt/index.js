@@ -11,7 +11,7 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_webfontloader_07e9dd05 from 'nuxt_plugin_webfontloader_07e9dd05' // Source: ./webfontloader.js (mode: 'client')
+import nuxt_plugin_webfontloader_ac9a3570 from 'nuxt_plugin_webfontloader_ac9a3570' // Source: ./webfontloader.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -141,8 +141,8 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (process.client && typeof nuxt_plugin_webfontloader_07e9dd05 === 'function') {
-    await nuxt_plugin_webfontloader_07e9dd05(app.context, inject)
+  if (process.client && typeof nuxt_plugin_webfontloader_ac9a3570 === 'function') {
+    await nuxt_plugin_webfontloader_ac9a3570(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

@@ -48,7 +48,8 @@ export default{
                 {title:"AWS ALB のメンテナンス閉塞をShellスクリプト化した", date:"2019-09-20", category:"programming"},
                 {title:"午前四時です", date:"2019-09-25", category:"diary"},
                 {title:"Nuxt.jsでSEOに関するmeta設定", date:"2019-09-26", category:"programming"},
-                {title:"gitでssh接続したときNuxt.jsのdeployがコケる", date:"2019-09-28", category:"programming"}
+                {title:"iOS Safariでフォントの表示がおかしい件", date:"2019-10-03", category:"programming"},
+                {title:"自動読み聞かせWebページを作った件での知見", date:"2019-10-04", category:"programming"}
             ].reverse(), //古い記事上に来てどうすん
             now: moment().tz("Asia/Tokyo").format("ll"),
         }
