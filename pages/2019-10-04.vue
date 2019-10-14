@@ -77,7 +77,7 @@ bodyより子供にしてください。bodyのbackgroundは色が残ります�
 \`\`\`
 
 これを指定すると治った。ふう。
-このサイト(https://www.seojuku.com/blog/ios-css.html)いいですね。
+このサイト(https://www.seojuku.com/blog/ios-css.html )いいですね。
 
 ## idで0からのIntegerでstyle.cssにstyleを書く時
 　idを0~100までdiv作る時に、一々、HTMLに予め用意するとか、
@@ -97,7 +97,13 @@ https://developer.mozilla.org/ja/docs/Web/API/Node/nextSibling
 本来、__insertBefore__はあっても、__insertAfter__はないんです。
 ですが、このようにやると、__insertAfter__の理想の動きをしてくれるんですよね。
 天才。
-
+なお、style.cssにおいては、クラス指定するときに、エスケープすることで指定できると知りました。
+以下はidが1のスタイル。
+\`\`\`CSS
+#\\0031{
+    font-size: 120%;
+}
+\`\`\`
 ## 最後に
 　今回のこのサイトは、コーディングしてて勉強になりました。
 もっと書きたい気持ちはありますが、時間がないのでここまでにします。では。
@@ -109,6 +115,7 @@ https://developer.mozilla.org/ja/docs/Web/API/Node/nextSibling
             title: this.title,
             meta: [
                 { hid: 'og:url', property: 'og:url', content: this.url },
+                { hid: 'og:description', property: 'og:description', content: 'programming' },
                 { hid: 'og:title', property: 'og:title', content: `ZODIAC BLOG - ${this.title}` },
             ],
         }
@@ -140,7 +147,3 @@ https://developer.mozilla.org/ja/docs/Web/API/Node/nextSibling
 }
 
 </script>
-
-
-<style src='highlight.js/styles/gruvbox-dark.css'></style>
-

@@ -39,4 +39,14 @@ export default {
             // { name: 'twitter:site', content: '@Twitter' },
         ],
     },
+    css: [
+        '~/assets/css/main.css',
+    ],
+    pageTransition: {
+        name: 'page',
+        mode: 'out-in',
+        beforeEnter (el) {
+            console.log('Before enter...');
+        }
+    }
 }

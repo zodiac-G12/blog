@@ -72,6 +72,7 @@ SPAモードと言うか、 __"nuxt generate"__ で実行して、静的HTMLで�
             title: this.title,
             meta: [
                 { hid: 'og:url', property: 'og:url', content: this.url },
+                { hid: 'og:description', property: 'og:description', content: 'programming' },
                 { hid: 'og:title', property: 'og:title', content: `ZODIAC BLOG - ${this.title}` },
             ],
         }
@@ -103,7 +104,3 @@ SPAモードと言うか、 __"nuxt generate"__ で実行して、静的HTMLで�
 }
 
 </script>
-
-
-<style src='highlight.js/styles/gruvbox-dark.css'></style>
-

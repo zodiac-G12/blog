@@ -9,9 +9,9 @@
 <script>
 
 import Vue from 'vue';
-import { Divider } from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
-Vue.use(Divider);
+// import { Divider } from 'ant-design-vue';
+// import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
+// Vue.use(Divider);
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserSecret, faIgloo, faBath, faHSquare, faClock, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faAngular, faTwitterSquare, faGithubSquare, faLinux, faVuejs, faAws } from '@fortawesome/free-brands-svg-icons';
@@ -26,9 +26,8 @@ export default {}
 </script>
 
 
-
+<style src='highlight.js/styles/gruvbox-dark.css'></style>
 <style>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/gruvbox-dark.min.css');
 
 /* 縦長 */
 @media screen and (orientation: portrait) {
@@ -51,11 +50,12 @@ html, body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: "PT Serif","Ubuntu Mono", 'Bungee Shade', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: "PT Serif", "Ubuntu Mono", 'Bungee Shade', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: var(--font-size);
     word-break : break-all;
     color: black;
     background: darkgray;
+    -webkit-text-size-adjust: none;
 }
 
 h1,h2,h3,h4{
@@ -68,48 +68,7 @@ a{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.title{
-    text-align: center;
-    font-family: 'Bungee Inline';
-    color: white;
-    line-height: 12vh;
-}
-
-.title span{
-    margin-right: -0.5vw;
-    animation: bakemono 10s ease-in-out infinite;
-}
-
-.title span:nth-of-type(1){ animation-delay: 0.0s; }
-.title span:nth-of-type(2){ animation-delay: 0.1s; }
-.title span:nth-of-type(3){ animation-delay: 0.25s; }
-.title span:nth-of-type(4){ animation-delay: 0.45s; }
-.title span:nth-of-type(5){ animation-delay: 0.7s; }
-.title span:nth-of-type(6){ animation-delay: 1.0s; }
-.title span:nth-of-type(7){ animation-delay: 1.35s; }
-.title span:nth-of-type(8){ animation-delay: 1.75s; }
-.title span:nth-of-type(9){ animation-delay: 2.2s; }
-.title span:nth-of-type(10){ animation-delay: 2.7s; }
-
-@keyframes bakemono{
-    0%{font-family: 'Bungee Inline';}
-    100%{font-family: 'Bungee Shade';}
-}
-
-.black-head{
-    width: 100vw;
-    height: 20vh;
-    background: linear-gradient(-45deg, black, darkslategray, black);
-    margin: 0;
-    color: snow;
-}
-
-.star{
-    color: gold;
-    position: fixed;
-    top: 7vh;
+    text-decoration: none;
 }
 
 .small-icon{
@@ -125,15 +84,6 @@ a{
     transform: translateY(10%);
 }
 
-.foot{
-    width: 100vw;
-    height: 15vh;
-    background: black;
-    text-align: center;
-    padding-top: 3vh;
-    bottom: 0;
-}
-
 .midashi{
     animation: slidein 1s ease-in-out forwards;
 }
@@ -141,6 +91,12 @@ a{
 @keyframes slidein{
     0%{margin-left:-1vw;opacity:0;}
     100%{margin-left:0;opacity:1;}
+}
+
+main h2, main h1{
+    margin-top: calc(var(--font-size)*2);
+    border-bottom: solid 5px;
+    text-align: center;
 }
 
 </style>

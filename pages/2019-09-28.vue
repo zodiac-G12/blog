@@ -83,6 +83,7 @@ and the repository exists.　
             title: this.title,
             meta: [
                 { hid: 'og:url', property: 'og:url', content: this.url },
+                { hid: 'og:description', property: 'og:description', content: 'programming' },
                 { hid: 'og:title', property: 'og:title', content: `ZODIAC BLOG - ${this.title}` },
             ],
         }
@@ -114,7 +115,3 @@ and the repository exists.　
 }
 
 </script>
-
-
-<style src='highlight.js/styles/gruvbox-dark.css'></style>
-
