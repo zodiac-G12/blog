@@ -45,3 +45,68 @@ export default{
 
 </script>
 
+
+
+<style>
+
+/* 縦長 */
+@media screen and (orientation: portrait) {
+    .black-head{
+        height: 20vh;
+    }
+    .title{
+        line-height: 12vh; 
+    }
+}
+/* 横長 */
+@media screen and (orientation: landscape) {
+    .black-head{
+        height: 30vh;
+    }
+    .title{
+        line-height: 19vh; 
+    }
+}
+
+.black-head{
+    width: 100vw;
+    background: linear-gradient(-45deg, black, darkslategray, black);
+    margin: 0;
+    color: snow;
+}
+
+.title{
+    text-align: center;
+    font-family: 'Bungee Inline';
+    font-weight: normal;
+    margin-top: 0;
+    color: white;
+}
+
+.title span{
+    margin-right: -0.5vw;
+    animation: bakemono 10s ease-in-out infinite;
+}
+
+@keyframes bakemono{
+    0%{font-family: 'Bungee Inline';}
+    100%{font-family: 'Bungee Shade';}
+}
+
+.title span:nth-of-type(1){ animation-delay: 0.0s; }
+.title span:nth-of-type(2){ animation-delay: 0.1s; }
+.title span:nth-of-type(3){ animation-delay: 0.25s; }
+.title span:nth-of-type(4){ animation-delay: 0.45s; }
+.title span:nth-of-type(5){ animation-delay: 0.7s; }
+.title span:nth-of-type(6){ animation-delay: 1.0s; }
+.title span:nth-of-type(7){ animation-delay: 1.35s; }
+.title span:nth-of-type(8){ animation-delay: 1.75s; }
+.title span:nth-of-type(9){ animation-delay: 2.2s; }
+.title span:nth-of-type(10){ animation-delay: 2.7s; }
+
+.star{
+    color: gold;
+    position: fixed;
+    top: 7vh;
+}
+</style>

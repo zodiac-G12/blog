@@ -99,6 +99,7 @@ localStorageの __wet__ を key として "__天気晴れ,気温27.1℃,湿度52
             title: this.title,
             meta: [
                 { hid: 'og:url', property: 'og:url', content: this.url },
+                { hid: 'og:description', property: 'og:description', content: 'programming' },
                 { hid: 'og:title', property: 'og:title', content: `ZODIAC BLOG - ${this.title}` },
             ],
         }
@@ -130,7 +131,3 @@ localStorageの __wet__ を key として "__天気晴れ,気温27.1℃,湿度52
 }
 
 </script>
-
-
-<style src='highlight.js/styles/gruvbox-dark.css'></style>
-

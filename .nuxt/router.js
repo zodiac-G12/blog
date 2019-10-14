@@ -9,6 +9,7 @@ const _5967cb4d = () => interopDefault(import('../pages/2019-09-26.vue' /* webpa
 const _5983fa4f = () => interopDefault(import('../pages/2019-09-28.vue' /* webpackChunkName: "pages/2019-09-28" */))
 const _432daeb6 = () => interopDefault(import('../pages/2019-10-03.vue' /* webpackChunkName: "pages/2019-10-03" */))
 const _433bc637 = () => interopDefault(import('../pages/2019-10-04.vue' /* webpackChunkName: "pages/2019-10-04" */))
+const _44f09ed6 = () => interopDefault(import('../pages/2019-10-14.vue' /* webpackChunkName: "pages/2019-10-14" */))
 const _d3b089a4 = () => interopDefault(import('../pages/config.vue' /* webpackChunkName: "pages/config" */))
 const _ac7bdcd4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -45,6 +46,10 @@ export const routerOptions = {
       path: "/2019-10-04",
       component: _433bc637,
       name: "2019-10-04"
+    }, {
+      path: "/2019-10-14",
+      component: _44f09ed6,
+      name: "2019-10-14"
     }, {
       path: "/config",
       component: _d3b089a4,
