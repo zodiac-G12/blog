@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class=loading>
         <nuxt />
     </div>
 </template>
@@ -11,22 +11,40 @@
 import Vue from 'vue';
 // import { Divider } from 'ant-design-vue';
 // import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
+
 // Vue.use(Divider);
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserSecret, faIgloo, faBath, faHSquare, faClock, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faAngular, faTwitterSquare, faGithubSquare, faLinux, faVuejs, faAws } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import hljs from 'highlight.js';
+import marked from 'marked';
+
 library.add(faUserSecret, faHSquare, faAngular, faTwitterSquare, faGithubSquare, faLinux, faIgloo, faVuejs, faAws, faBath, faClock, faEdit);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-export default {}
+
+export default {
+    created: function(){
+        console.log('default created');
+        marked.setOptions({
+            langPrefix: '',
+            highlight: function(code, lang) {
+                return hljs.highlightAuto(code, [lang]).value;
+            }
+        });
+    },
+    async mounted(){
+        console.log('default mounted');
+        hljs.initHighlightingOnLoad();
+    }
+}
 
 </script>
 
 
-<style src='highlight.js/styles/gruvbox-dark.css'></style>
 <style>
 
 /* 縦長 */
@@ -105,6 +123,20 @@ main h2, main h1{
 
 pre code span{
     font-family: "Ubuntu Mono", monospace;
+}
+
+.loading{
+    animation: load 1s ease-in-out forwards;
+}
+
+@keyframes load{
+    0%{
+        background-color: tomato;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
 </style>

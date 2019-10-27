@@ -40,14 +40,15 @@ export default {
         ],
     },
     css: [
-        '~/assets/css/main.css',
+        // '~/assets/css/main.css',
+        {src: '~/node_modules/highlight.js/styles/gruvbox-dark.css', lang: 'css'},
     ],
-    pageTransition: {
-        name: 'page',
-        mode: 'out-in',
-        css: true,
-        beforeEnter (el) {
-            console.log('Before enter...');
-        }
-    }
+    // pageTransition: {
+    //     name: 'page',
+    //     mode: 'out-in',
+    //     css: true,
+    //     beforeEnter (el) {
+    //         console.log('Before enter...');
+    //     }
+    // }
 }

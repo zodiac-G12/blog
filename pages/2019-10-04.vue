@@ -22,7 +22,6 @@ import moment from 'moment-timezone';
 import defaultHeader from '~/components/default-header';
 import defaultFooter from '~/components/default-footer';
 import pankuz from '~/components/pankuz';
-import hljs from 'highlight.js';
 import marked from 'marked';
 
 export default{
@@ -30,7 +29,6 @@ export default{
         return {
             title: "自動読み聞かせWebページを作った件での知見",
             url: "https:zodiac-G12.github.io/blog/2019-10-04",
-            kiji: null,
             prekiji:
 `
 ## 天下り的に制作物をまずご覧いただく
@@ -120,25 +118,9 @@ https://developer.mozilla.org/ja/docs/Web/API/Node/nextSibling
             ],
         }
     },
-    created: function () {
-        marked.setOptions({
-            langPrefix: '',
-            highlight: function(code, lang) {
-                return hljs.highlightAuto(code, [lang]).value;
-            }
-        });
-    },
-    mounted(){
-        hljs.initHighlightingOnLoad();
-        this.kiji = marked(this.escape(this.prekiji));
-    },
-    methods: {
-        escape(str) {
-            return str;
-            // return str.split("").map((c)=>{
-            //     if (["\\"].includes(c)) return `\${c}`;
-            //     else return c;
-            // }).join("")
+    computed: {
+        kiji(){
+            return marked(this.prekiji);
         }
     },
     components: {
