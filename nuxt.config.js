@@ -45,6 +45,7 @@ export default {
     pageTransition: {
         name: 'page',
         mode: 'out-in',
+        css: true,
         beforeEnter (el) {
             console.log('Before enter...');
         }

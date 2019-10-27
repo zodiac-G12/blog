@@ -70,7 +70,8 @@ export default{
 
 .black-head{
     width: 100vw;
-    background: linear-gradient(-45deg, black, darkslategray, black);
+    /* background: linear-gradient(-45deg, black, darkslategray, black); */
+    background: linear-gradient(to right,#7E0F4B, #1A5865);
     margin: 0;
     color: snow;
 }
