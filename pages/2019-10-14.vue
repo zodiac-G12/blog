@@ -22,7 +22,6 @@ import moment from 'moment-timezone';
 import defaultHeader from '~/components/default-header';
 import defaultFooter from '~/components/default-footer';
 import pankuz from '~/components/pankuz';
-import hljs from 'highlight.js';
 import marked from 'marked';
 
 export default{
@@ -30,7 +29,6 @@ export default{
         return {
             title: "Nuxt.jsでdirectory直下のファイルの一覧を取得する方法",
             url: "https:zodiac-G12.github.io/blog/2019-10-14",
-            kiji: null,
             prekiji:
 `
 ## モチベーション
@@ -144,26 +142,9 @@ mounted() {
             ],
         }
     },
-    created: function () {
-        console.log('created')
-        marked.setOptions({
-            langPrefix: '',
-            highlight: function(code, lang) {
-                return hljs.highlightAuto(code, [lang]).value;
-            }
-        });
-    },
-    mounted(){
-        console.log('mounted')
-        this.kiji = marked(this.prekiji);
-        console.log(hljs.initHighlightingOnLoad());
-        // (async()=>{
-        //     await this.sleep(3000);
-        // })();
-    },
-    methods: {
-        sleep(n) {
-            return new Promise(resolve => setTimeout(resolve, n));
+    computed: {
+        kiji(){
+            return marked(this.prekiji);
         }
     },
     components: {
@@ -172,6 +153,3 @@ mounted() {
 }
 
 </script>
-
-<style src='highlight.js/styles/gruvbox-dark.css'></style>
-

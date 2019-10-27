@@ -1,5 +1,5 @@
 <template>
-    <div class='loading'>
+    <div>
         <default-header></default-header>
         <main style="padding:5vw;">
             <h3 class="list-info">
@@ -11,9 +11,9 @@
             <div class="list-info-detail">
                 <div v-if="result.length!=0" class="for-list" v-for="(item, index) in result">
                     <b>●</b>
-                    <NuxtLink style="color:navy;font-weight:bold;" v-bind:to="item.date">
+                    <a style="color:navy;font-weight:bold;" :href="item.date">
                         [{{item.date}}] - {{item.title}} ({{item.category}})
-                    </NuxtLink>
+                    </a>
                     <new-wave v-if="index==0"></new-wave>
                 </div>
             </div>
@@ -111,12 +111,5 @@ export default{
 .for-list{
     display: flex;
     margin: var(--font-size) 0 var(--font-size) 0;
-}
-.loading{
-    animation: load 0.75s ease-in-out forwards;
-}
-@keyframes load{
-    0%{opacity:0;}
-    100%{opacity:1;}
 }
 </style>
