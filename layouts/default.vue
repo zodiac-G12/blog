@@ -54,7 +54,11 @@ html, body{
     font-size: var(--font-size);
     word-break : break-all;
     color: black;
-    background: darkgray;
+    /* background: linear-gradient(-45deg, black, darkslategray, black); */
+    /* background: darkgray; */
+    background-color: #555;     
+    -webkit-background-size: 10px 10px;
+    background-image: -webkit-gradient(linear, -5 0, 10 150%, color-stop(.5, rgba(255, 255, 255, .1)), color-stop(.5, transparent), to(transparent));
     -webkit-text-size-adjust: none;
 }
 
@@ -97,6 +101,10 @@ main h2, main h1{
     margin-top: calc(var(--font-size)*2);
     border-bottom: solid 5px;
     text-align: center;
+}
+
+pre code span{
+    font-family: "Ubuntu Mono", monospace;
 }
 
 </style>

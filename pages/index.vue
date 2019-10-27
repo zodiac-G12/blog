@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class='loading'>
         <default-header></default-header>
         <main style="padding:5vw;">
             <h3 class="list-info">
@@ -11,9 +11,9 @@
             <div class="list-info-detail">
                 <div v-if="result.length!=0" class="for-list" v-for="(item, index) in result">
                     <b>●</b>
-                    <a style="color:navy;font-weight:bold;" :href="item.date">[{{item.date}}] - {{item.title}} ({{item.category}})</a>
-                    <!-- TODO transition if then code color 反映されない -->
-                    <!-- <NuxtLink v&#45;bind:to="item.data"></NuxtLink> -->
+                    <NuxtLink style="color:navy;font-weight:bold;" v-bind:to="item.date">
+                        [{{item.date}}] - {{item.title}} ({{item.category}})
+                    </NuxtLink>
                     <new-wave v-if="index==0"></new-wave>
                 </div>
             </div>
@@ -45,16 +45,9 @@ import axios from 'axios';
 import fileLists from '~/components/fileLists.json';
 
 export default{
+    loading: false,
     data: function() {
         return {
-            // TODO pages直下から自動で色々やりたい、Do you understand??? => FIXED
-            // list: [
-            //     {title:"AWS ALB のメンテナンス閉塞をShellスクリプト化した", date:"2019-09-20", category:"programming"},
-            //     {title:"午前四時です", date:"2019-09-25", category:"diary"},
-            //     {title:"Nuxt.jsでSEOに関するmeta設定", date:"2019-09-26", category:"programming"},
-            //     {title:"iOS Safariでフォントの表示がおかしい件", date:"2019-10-03", category:"programming"},
-            //     {title:"自動読み聞かせWebページを作った件での知見", date:"2019-10-04", category:"programming"}
-            // ].reverse(), //古い記事上に来てどうすん
             now: moment().tz("Asia/Tokyo").format("ll"),
             fileLists: fileLists,
             result: null,
@@ -98,8 +91,14 @@ export default{
 
 <style>
 .list-info{
-    box-shadow: 5px 5px 0px 0px darkslategray;
-    background: darkgreen;
+    box-shadow: 5px 5px 0px 0px black;
+    /* background: darkgreen; */
+    /* background: MediumVioletRed; */
+    /* background: olivedrab; */
+    /* background: seagreen; */
+    /* background: teal; */
+    /* background: steelblue; */
+    background: linear-gradient(-45deg, darkslategray, black, darkslategray);
     color: white;
     padding: 2vw;
     text-align: center;
@@ -112,5 +111,12 @@ export default{
 .for-list{
     display: flex;
     margin: var(--font-size) 0 var(--font-size) 0;
+}
+.loading{
+    animation: load 0.75s ease-in-out forwards;
+}
+@keyframes load{
+    0%{opacity:0;}
+    100%{opacity:1;}
 }
 </style>

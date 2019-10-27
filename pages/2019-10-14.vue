@@ -3,7 +3,7 @@
         <default-header></default-header>
         <pankuz></pankuz>
         <main style="padding:5vw;">
-            <h3 style="box-shadow:5px 5px 0px 0px darkslategray;background:darkgreen;color:white;padding:2vw;text-align:center;">
+            <h3 style="box-shadow:5px 5px 0px 0px darkslategray;background:linear-gradient(-45deg, darkslategray, black, darkslategray);color:white;padding:2vw;text-align:center;">
                 <b class="midashi" style="border-bottom: dotted 3px crimson;">
                     {{title}}
                     <font-awesome-icon class="icon" style="color:darkorange;" :icon="['fab', 'vuejs']" />
@@ -145,6 +145,7 @@ mounted() {
         }
     },
     created: function () {
+        console.log('created')
         marked.setOptions({
             langPrefix: '',
             highlight: function(code, lang) {
@@ -153,16 +154,16 @@ mounted() {
         });
     },
     mounted(){
-        hljs.initHighlightingOnLoad();
-        this.kiji = marked(this.escape(this.prekiji));
+        console.log('mounted')
+        this.kiji = marked(this.prekiji);
+        console.log(hljs.initHighlightingOnLoad());
+        // (async()=>{
+        //     await this.sleep(3000);
+        // })();
     },
     methods: {
-        escape(str) {
-            return str;
-            // return str.split("").map((c)=>{
-            //     if (["\\"].includes(c)) return `\${c}`;
-            //     else return c;
-            // }).join("")
+        sleep(n) {
+            return new Promise(resolve => setTimeout(resolve, n));
         }
     },
     components: {
@@ -171,3 +172,6 @@ mounted() {
 }
 
 </script>
+
+<style src='highlight.js/styles/gruvbox-dark.css'></style>
+
