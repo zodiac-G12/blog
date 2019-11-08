@@ -47,6 +47,8 @@ export default {
 
 <style>
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono|Black+Ops+One|Bungee+Inline|Bungee+Shade&display=swap');
+
 /* 縦長 */
 @media screen and (orientation: portrait) {
     :root{
