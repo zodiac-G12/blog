@@ -3,6 +3,7 @@ export default {
         base: '/blog/'
     },
     modules: [['nuxt-webfontloader']],
+    // iOS で動かない可能性がある箇所　非対応か　要検証`
     webfontloader: {
         google: {
             families: [
