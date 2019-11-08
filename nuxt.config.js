@@ -2,22 +2,22 @@ export default {
     router: {
         base: '/blog/'
     },
-    modules: [['nuxt-webfontloader']],
-    // iOS で動かない可能性がある箇所　非対応か　要検証`
-    webfontloader: {
-        google: {
-            families: [
-                'PT+Serif',
-                'Open+Sans',
-                'Bevan',
-                'Spectral+SC',
-                'Ubuntu+Mono',
-                'Black+Ops+One',
-                'Bungee+Inline',
-                'Bungee+Shade'
-            ]
-        }
-    },
+    // modules: [['nuxt-webfontloader']],
+    // // iOS で動かない可能性がある箇所　非対応か　要検証`
+    // webfontloader: {
+    //     google: {
+    //         families: [
+    //             'PT+Serif',
+    //             'Open+Sans',
+    //             'Bevan',
+    //             'Spectral+SC',
+    //             'Ubuntu+Mono',
+    //             'Black+Ops+One',
+    //             'Bungee+Inline',
+    //             'Bungee+Shade'
+    //         ]
+    //     }
+    // },
     head: {
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/blog/favicon.ico' }
