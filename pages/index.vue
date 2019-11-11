@@ -17,6 +17,13 @@
                     <new-wave v-if="index==0"></new-wave>
                 </div>
             </div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-4943358250220700",
+                enable_page_level_ads: true
+              });
+            </script>
             <h3 class="list-info" style="margin-top:5vh;">
                 <b class="midashi">
                     ZODIAC-G12 の情報
@@ -26,6 +33,13 @@
             <div class="list-info-detail">
                 <b>● HOME PAGE (<a href="https://zodiac-G12.github.io/homepage">https://zodiac-G12.github.io/homepage</a>)</b>
             </div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script>
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-4943358250220700",
+                enable_page_level_ads: true
+              });
+            </script>
         </main>
         <default-footer></default-footer>
     </div>
