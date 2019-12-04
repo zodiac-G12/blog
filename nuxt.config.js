@@ -2,32 +2,35 @@ export default {
     router: {
         base: '/blog/'
     },
-    // modules: [['nuxt-webfontloader']],
-    // // iOS で動かない可能性がある箇所　非対応か　要検証`
-    // webfontloader: {
-    //     google: {
-    //         families: [
-    //             'PT+Serif',
-    //             'Open+Sans',
-    //             'Bevan',
-    //             'Spectral+SC',
-    //             'Ubuntu+Mono',
-    //             'Black+Ops+One',
-    //             'Bungee+Inline',
-    //             'Bungee+Shade'
-    //         ]
-    //     }
-    // },
+    modules: [['nuxt-webfontloader']],
+    // iOS で動かない可能性がある箇所　非対応か　要検証`
+    webfontloader: {
+        google: {
+            families: [
+                'PT+Serif',
+                'Open+Sans',
+                'Bevan',
+                'Spectral+SC',
+                'Ubuntu+Mono',
+                'Black+Ops+One',
+                'Bungee+Inline',
+                'Bungee+Shade'
+            ]
+        }
+    },
     head: {
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/blog/favicon.ico' }
         ],
         htmlAttrs: {
-            prefix: 'og: http://ogp.me/ns#'
+            prefix: 'og: http://ogp.me/ns#',
+            lang: 'ja'
         },
         titleTemplate: '%s - ZODIAC BLOG',
         meta: [
+            { charset: 'utf-8' },
             { hid: 'description', name: 'description', content: '技術ブログ' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { hid: 'og:site_name', property: 'og:site_name', content: 'ZODIAC BLOG' },
             { hid: 'og:type', property: 'og:type', content: 'website' },
             { hid: 'og:url', property: 'og:url', content: 'https://zodiac-G12.github.io/blog' },
