@@ -37,11 +37,11 @@ export default{
 だが、今回こんな記事を見つけて、
 
 <center>
-<img src="/blog/_nuxt/assets/EGBBv3KU8AAy2YC.jpeg">
+<img src="../EGBBv3KU8AAy2YC.jpeg" />
 </center>
 
 なるほどと思った。道理で。
-__Ubuntu Mono__ (https://fonts.google.com/specimen/Ubuntu+Mono)というフォントで先ず確認して、
+__Ubuntu Mono__ (https://fonts.google.com/specimen/Ubuntu+Mono )というフォントで先ず確認して、
 他にもあると思う(このサイト内の文字でも起こっている)。
 
 UserAgent取得して、対応すべきブラウザに対しては、Bold回避するなりして、対応していきたい。
