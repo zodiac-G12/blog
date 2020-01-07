@@ -76,9 +76,9 @@ html, body{
     color: black;
     /* background: linear-gradient(-45deg, black, darkslategray, black); */
     /* background: darkgray; */
-    background-color: #555;     
-    -webkit-background-size: 10px 10px;
-    background-image: -webkit-gradient(linear, -5 0, 10 150%, color-stop(.5, rgba(255, 255, 255, .1)), color-stop(.5, transparent), to(transparent));
+    background-color: #661400;
+    -webkit-background-size: calc(var(--font-size)*0.4) calc(var(--font-size)*0.4);
+    background-image: -webkit-gradient(linear, -40% 100%, 10% 150%, color-stop(.5, rgba(255, 255, 255, .15)), color-stop(.5, transparent), to(transparent));
     -webkit-text-size-adjust: none;
 }
 
@@ -133,12 +133,18 @@ pre code span{
 
 @keyframes load{
     0%{
-        background-color: tomato;
-        opacity: 0;
+        background-color: royalblue;
+        /* opacity: 0; */
     }
     100%{
-        opacity: 1;
+        /* opacity: 1; */
     }
+}
+
+img{
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
 }
 
 </style>

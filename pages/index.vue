@@ -9,7 +9,13 @@
                 </b>
             </h3>
             <div class="list-info-detail">
-                <div v-if="result.length!=0" class="for-list" v-for="(item, index) in result">
+                <div v-if="!result">
+                    <b>Loading</b>
+                    <b class="colon0">.</b>
+                    <b class="colon1">.</b>
+                    <b class="colon2">.</b>
+                </div>
+                <div v-else class="for-list" v-for="(item, index) in result">
                     <b>●</b>
                     <a style="color:navy;font-weight:bold;" :href="item.date">
                         [{{item.date}}] - {{item.title}} ({{item.category}})
@@ -17,13 +23,6 @@
                     <new-wave v-if="index==0"></new-wave>
                 </div>
             </div>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-4943358250220700",
-                enable_page_level_ads: true
-              });
-            </script>
             <h3 class="list-info" style="margin-top:5vh;">
                 <b class="midashi">
                     ZODIAC-G12 の情報
@@ -33,13 +32,6 @@
             <div class="list-info-detail">
                 <b>● HOME PAGE (<a href="https://zodiac-G12.github.io/homepage">https://zodiac-G12.github.io/homepage</a>)</b>
             </div>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-4943358250220700",
-                enable_page_level_ads: true
-              });
-            </script>
         </main>
         <default-footer></default-footer>
     </div>
@@ -126,4 +118,22 @@ export default{
     display: flex;
     margin: var(--font-size) 0 var(--font-size) 0;
 }
+@keyframes hid{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+.colon0, .colon1, .colon2{
+    opacity: 0;
+    animation: hid 1s ease-in-out infinite;
+}
+.colon0{
+    animation-delay: 0.3s;
+}
+.colon1{
+    animation-delay: 0.6s;
+}
+.colon2{
+    animation-delay: 0.9s;
+}
+
 </style>
