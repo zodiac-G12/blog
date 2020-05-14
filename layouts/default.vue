@@ -1,150 +1,206 @@
 <template>
-    <div class=loading>
-        <nuxt />
+    <div>
+        <nuxt keep-alive />
     </div>
 </template>
 
 
-
 <script>
-
 import Vue from 'vue';
-// import { Divider } from 'ant-design-vue';
-// import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
 
-// Vue.use(Divider);
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUserSecret, faIgloo, faBath, faHSquare, faClock, faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faAngular, faTwitterSquare, faGithubSquare, faLinux, faVuejs, faAws } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import highlight from 'highlight.js';
+// ⚠   Look at file ~/node_modules/highlight.js/lib/index.js ⚠
 
-import hljs from 'highlight.js';
 import marked from 'marked';
-
-library.add(faUserSecret, faHSquare, faAngular, faTwitterSquare, faGithubSquare, faLinux, faIgloo, faVuejs, faAws, faBath, faClock, faEdit);
-
-Vue.component('font-awesome-icon', FontAwesomeIcon);
-
 
 export default {
     created: function(){
-        console.log('default created');
+        if (!process.client) console.log('default created');
         marked.setOptions({
             langPrefix: '',
             highlight: function(code, lang) {
-                return hljs.highlightAuto(code, [lang]).value;
+                return highlight.highlightAuto(code, [lang]).value;
             }
         });
     },
     async mounted(){
-        console.log('default mounted');
-        hljs.initHighlightingOnLoad();
-    }
+        if (!process.client) console.log('default mounted');
+        highlight.initHighlighting();
+    },
 }
-
 </script>
 
 
 <style>
-
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono|Black+Ops+One|Bungee+Inline|Bungee+Shade&display=swap');
-
 /* 縦長 */
 @media screen and (orientation: portrait) {
     :root{
         --font-size: 3.5vw;
-        --landscape: none;
-        --portrait: block;
+        --logo-top: -50px;
+    }
+    .articleContainer{
+        display: block;
+    }
+    .articleItem{
+        padding: 0;
+        margin: calc(25px + 2vw) auto calc(25px + 2vw) auto;
+        display: block;
+        width: 70vw;
+        height: 55vw;
     }
 }
 /* 横長 */
 @media screen and (orientation: landscape) {
     :root{
         --font-size: 1.5vw;
-        --landscape: block;
-        --portrait: none;
+        --logo-scale: 0;
+    }
+    .articleContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex: 1 1 33%;
+    }
+    .articleContainer::after{
+        content: "";
+        display: block;
+        width: 29vw;
+    }
+    .articleItem{
+        padding: 0;
+        margin: calc(25px + 2vw) 0 calc(25px + 2vw) 0;
+        display: block;
+        width: 29vw;
+        height: 25vw;
     }
 }
 
-html, body{
+html {
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+    word-spacing: 1px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: "PT Serif", "Ubuntu Mono", 'Bungee Shade', monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: var(--font-size);
     word-break : break-all;
     color: black;
-    /* background: linear-gradient(-45deg, black, darkslategray, black); */
-    /* background: darkgray; */
-    background-color: #661400;
-    -webkit-background-size: calc(var(--font-size)*0.4) calc(var(--font-size)*0.4);
-    background-image: -webkit-gradient(linear, -40% 100%, 10% 150%, color-stop(.5, rgba(255, 255, 255, .15)), color-stop(.5, transparent), to(transparent));
+    -ms-text-size-adjust: none;
     -webkit-text-size-adjust: none;
 }
 
-h1,h2,h3,h4{
-    /* margin: 0; */
-    color: black;
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
 }
 
-a{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-decoration: none;
-}
-
-.small-icon{
-    font-size: calc(var(--font-size)*1);
-    width: calc(var(--font-size)*1);
-    height: calc(var(--font-size)*1);
-}
-
-.icon{
-    font-size: calc(var(--font-size)*1.5);
-    width: calc(var(--font-size)*1.5);
-    height: calc(var(--font-size)*1.5);
-    transform: translateY(10%);
-}
-
-.midashi{
-    animation: slidein 1s ease-in-out forwards;
-}
-
-@keyframes slidein{
-    0%{margin-left:-1vw;opacity:0;}
-    100%{margin-left:0;opacity:1;}
+.innerArticleItem{
+    position: relative;
+    box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    max-height: 900px;
+    margin: auto;
+    background: white;
 }
 
 main h2, main h1{
-    margin-top: calc(var(--font-size)*2);
+    margin-bottom: calc(var(--font-size)*1);
     border-bottom: solid 5px;
     text-align: center;
 }
 
-pre code span{
-    font-family: "Ubuntu Mono", monospace;
+main h2 {
+    text-align: left;
+    font-size: 130%;
+    padding: 0.5vh 0 0.5vh 1vh;
+    border-left: solid 0.5vh crimson;
+    border-bottom: solid 0.3vh black;
 }
 
-.loading{
-    animation: load 1s ease-in-out forwards;
+main h3, main p, main li{
+    text-align: left;
+    margin-top: calc(var(--font-size)*1);
+    margin-bottom: calc(var(--font-size)*1);
 }
 
-@keyframes load{
-    0%{
-        background-color: royalblue;
-        /* opacity: 0; */
-    }
-    100%{
-        /* opacity: 1; */
-    }
+#top{
+    height: 100vh;
 }
 
-img{
-    width: 50%;
-    height: 50%;
+#blogs {
+    position: absolute;
+    left: 0;
+    top: 100vh;
+    background: white;
+    /* height: 100vh; */
+    width: 100%;
+    text-align: center;
+    padding: 5vh 50px 150px 50px;
+}
+
+.nyoibo {
+    border-bottom: solid 2px black;
+    margin: auto;
+    animation: nyoibo 1.5s forwards;
+}
+
+@keyframes nyoibo {
+    0%{width: 0%;}
+    100%{width: 100%;}
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 10vh;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: calc(var(--font-size));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    display: block;
+    font-weight: 300;
+    color: #35495e;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-weight: 300;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+}
+
+.links {
+    padding-top: 15px;
+}
+
+img {
+    box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;
+    width: 60vw;
     object-fit: contain;
+}
+
+/* add marked styles */
+blockquote {
+    border-left: 2px solid darkslategray;
+    padding: 0 15px;
 }
 
 </style>

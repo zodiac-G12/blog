@@ -11,17 +11,20 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_webfontloader_ac9a3570 from 'nuxt_plugin_webfontloader_ac9a3570' // Source: ./webfontloader.js (mode: 'client')
+import nuxt_plugin_workbox_72c5ab38 from 'nuxt_plugin_workbox_72c5ab38' // Source: ./workbox.js (mode: 'client')
+import nuxt_plugin_nuxticons_7c51e200 from 'nuxt_plugin_nuxticons_7c51e200' // Source: ./nuxt-icons.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
+
 // TODO: Remove in Nuxt 3: <NoSsr>
 Vue.component(NoSsr.name, {
   ...NoSsr,
-  render(h, ctx) {
+  render (h, ctx) {
     if (process.client && !NoSsr._warned) {
       NoSsr._warned = true
-      console.warn(`<no-ssr> has been deprecated and will be removed in Nuxt 3, please use <client-only> instead`)
+
+      console.warn('<no-ssr> has been deprecated and will be removed in Nuxt 3, please use <client-only> instead')
     }
     return NoSsr.render(h, ctx)
   }
@@ -33,20 +36,14 @@ Vue.component('NChild', NuxtChild)
 
 // Component NuxtLink is imported in server.js or client.js
 
-// Component: <Nuxt>`
+// Component: <Nuxt>
 Vue.component(Nuxt.name, Nuxt)
 
-// vue-meta configuration
-Vue.use(Meta, {
-  keyName: 'head', // the component option name that vue-meta looks for meta info on.
-  attribute: 'data-n-head', // the attribute name vue-meta adds to the tags it observes
-  ssrAttribute: 'data-n-head-ssr', // the attribute name that lets vue-meta know that meta info has already been server-rendered
-  tagIDKeyName: 'hid' // the property name that vue-meta uses to determine whether to overwrite or append a tag
-})
+Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n-head-ssr","tagIDKeyName":"hid"})
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
-async function createApp(ssrContext) {
+async function createApp (ssrContext) {
   const router = await createRouter(ssrContext)
 
   // Create Root instance
@@ -54,14 +51,15 @@ async function createApp(ssrContext) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    router,
+    head: {"title":"blog","titleTemplate":"ZODIAC BLOG","htmlAttrs":{"prefix":"og: http:\u002F\u002Fogp.me\u002Fns#","lang":"ja"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"theme-color","content":"#CD5C5C"},{"hid":"description","name":"description","content":"My smashing Nuxt.js project"},{"hid":"og:site_name","property":"og:site_name","content":"ZODIAC BLOG"},{"hid":"og:type","property":"og:type","content":"website"},{"hid":"og:url","property":"og:url","content":"https:\u002F\u002Fzodiac-g12.github.io\u002Fblog"},{"hid":"og:title","property":"og:title","content":"ZODIAC BLOG"},{"hid":"og:description","property":"og:description","content":"My smashing Nuxt.js project"},{"hid":"og:image","property":"og:image","content":"https:\u002F\u002Favatars1.githubusercontent.com\u002Fu\u002F12181838?s=460&av=4"},{"hid":"mobile-web-app-capable","name":"mobile-web-app-capable","content":"yes"},{"hid":"apple-mobile-web-app-title","name":"apple-mobile-web-app-title","content":"ZODIAC BLOG"},{"hid":"author","name":"author","content":"zodiac-G12"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":".\u002Ffavicon.ico?"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.412af12d.json"},{"rel":"shortcut icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_64.e2fc9a.png"},{"rel":"apple-touch-icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_512.e2fc9a.png","sizes":"512x512"}],"style":[],"script":[]},
 
+    router,
     nuxt: {
       defaultTransition,
-      transitions: [ defaultTransition ],
-      setTransitions(transitions) {
+      transitions: [defaultTransition],
+      setTransitions (transitions) {
         if (!Array.isArray(transitions)) {
-          transitions = [ transitions ]
+          transitions = [transitions]
         }
         transitions = transitions.map((transition) => {
           if (!transition) {
@@ -76,17 +74,23 @@ async function createApp(ssrContext) {
         this.$options.nuxt.transitions = transitions
         return transitions
       },
+
       err: null,
       dateErr: null,
-      error(err) {
+      error (err) {
         err = err || null
         app.context._errored = Boolean(err)
         err = err ? normalizeError(err) : null
-        const nuxt = this.nuxt || this.$options.nuxt
+        let nuxt = app.nuxt // to work with @vue/composition-api, see https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-573280207
+        if (this) {
+          nuxt = this.nuxt || this.$options.nuxt
+        }
         nuxt.dateErr = Date.now()
         nuxt.err = err
         // Used in src/server.js
-        if (ssrContext) ssrContext.nuxt.error = err
+        if (ssrContext) {
+          ssrContext.nuxt.error = err
+        }
         return err
       }
     },
@@ -99,7 +103,7 @@ async function createApp(ssrContext) {
   if (ssrContext) {
     route = router.resolve(ssrContext.url).route
   } else {
-    const path = getLocation(router.options.base)
+    const path = getLocation(router.options.base, router.options.mode)
     route = router.resolve(path).route
   }
 
@@ -108,7 +112,6 @@ async function createApp(ssrContext) {
     route,
     next,
     error: app.nuxt.error.bind(app),
-
     payload: ssrContext ? ssrContext.payload : undefined,
     req: ssrContext ? ssrContext.req : undefined,
     res: ssrContext ? ssrContext.res : undefined,
@@ -117,21 +120,28 @@ async function createApp(ssrContext) {
   })
 
   const inject = function (key, value) {
-    if (!key) throw new Error('inject(key, value) has no key provided')
-    if (typeof value === 'undefined') throw new Error('inject(key, value) has no value provided')
+    if (!key) {
+      throw new Error('inject(key, value) has no key provided')
+    }
+    if (value === undefined) {
+      throw new Error(`inject('${key}', value) has no value provided`)
+    }
+
     key = '$' + key
     // Add into app
     app[key] = value
 
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
-    if (Vue[installKey]) return
+    if (Vue[installKey]) {
+      return
+    }
     Vue[installKey] = true
     // Call Vue.use() to install the plugin into vm
     Vue.use(() => {
-      if (!Vue.prototype.hasOwnProperty(key)) {
+      if (!Object.prototype.hasOwnProperty.call(Vue, key)) {
         Object.defineProperty(Vue.prototype, key, {
-          get() {
+          get () {
             return this.$root.$options[key]
           }
         })
@@ -141,8 +151,12 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (process.client && typeof nuxt_plugin_webfontloader_ac9a3570 === 'function') {
-    await nuxt_plugin_webfontloader_ac9a3570(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_72c5ab38 === 'function') {
+    await nuxt_plugin_workbox_72c5ab38(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_nuxticons_7c51e200 === 'function') {
+    await nuxt_plugin_nuxticons_7c51e200(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
@@ -164,7 +178,6 @@ async function createApp(ssrContext) {
 
   return {
     app,
-
     router
   }
 }

@@ -1,139 +1,93 @@
 <template>
-    <div>
-        <default-header></default-header>
-        <main style="padding:5vw;">
-            <h3 class="list-info">
-                <b class="midashi">
-                    ZODIAC-G12 のブログ一覧
-                    <font-awesome-icon class="icon" style="color:darkorange;transform: translateY(5%);" :icon="['fas', 'edit']" />
-                </b>
-            </h3>
-            <div class="list-info-detail">
-                <div v-if="!result">
-                    <b>Loading</b>
-                    <b class="colon0">.</b>
-                    <b class="colon1">.</b>
-                    <b class="colon2">.</b>
-                </div>
-                <div v-else class="for-list" v-for="(item, index) in result">
-                    <b>●</b>
-                    <a style="color:navy;font-weight:bold;" :href="item.date">
-                        [{{item.date}}] - {{item.title}} ({{item.category}})
-                    </a>
-                    <new-wave v-if="index==0"></new-wave>
-                </div>
+    <div class="container">
+        <div id="top">
+            <Logo />
+            <h1 class="title">ZODIAC BLOG</h1>
+            <h2 class="subtitle">Provided By {Nuxt.js + GitHub Pages}</h2>
+            <InformationForm :displayStyle="'block'"/>
+        </div>
+
+        <div id="blogs">
+            <h2 class="subtitle" style="color: black;">
+                LATEST ARTICLES
+            </h2>
+            <div class="nyoibo" style="margin-bottom: 5%;"></div>
+
+            <!-- TODO きれいにしたい -->
+            <div class="articleContainer">
+                <nuxt-link v-for="item in blogs" :key="item.link" 
+                   :to="'./'+item.link"
+                   class="articleItem" prefetch>
+                    <div class="innerArticleItem">
+                        <picture>
+                            <source type="image/webp" :srcset="'/'+(item.samn).split('.')[0]+'.webp'">
+                            <img alt="" :src="'/'+item.samn" decoding="async" style="width: 100%; margin: auto;border: none; box-shadow: none;"></img>
+                        </picture>
+                        <div style="position: absolute; bottom: 0px; width: 100%; padding: 10px;">
+                            <div style="margin-bottom: 5px;">{{item.title}}</div>
+                            <div style="font-size: 80%;">{{item.time}}</div>
+                        </div>
+                    </div>
+                </nuxt-link>
             </div>
-            <h3 class="list-info" style="margin-top:5vh;">
-                <b class="midashi">
-                    ZODIAC-G12 の情報
-                    <font-awesome-icon class="icon" style="color:darkorange;transform: translateY(5%);" :icon="['fas', 'edit']" />
-                </b>
-            </h3>
-            <div class="list-info-detail">
-                <b>● HOME PAGE (<a href="https://zodiac-G12.github.io/homepage">https://zodiac-G12.github.io/homepage</a>)</b>
-            </div>
-        </main>
-        <default-footer></default-footer>
+
+            <OriginalPagination :info="this.blogQuery" v-on:onPaging="getBlogs"/>
+        </div>
+
+        <!-- TODO 鬱陶しい -->
+        <!-- <ScrlArrow :look="look" :dom_ids="dom_ids" /> -->
+        <footer style="position: absolute; bottom: 10%;width: 100vw;margin-bottom:5vh; text-align: center;">{{footer_info}}</footer> 
     </div>
 </template>
 
-
-
 <script>
-
-import moment from 'moment-timezone';
-import defaultHeader from '~/components/default-header';
-import defaultFooter from '~/components/default-footer';
-import newWave from '~/components/new-wave';
-
-import axios from 'axios';
-
 import fileLists from '~/components/fileLists.json';
+const OriginalPagination = () => import('~/components/original-pagination.vue');
+const Logo = () => import('~/components/logo.vue');
+const ScrlArrow = () => import('~/components/scrl-arrow.vue');
+const InformationForm = () => import('~/components/information-form.vue');
 
-export default{
-    loading: false,
+const mobileViewPageNum = 5,
+          pcViewPageNum = 6;
+
+const fileListsValues = Object.values(fileLists),
+      blogQueryLength = fileListsValues.length;
+
+export default {
     data: function() {
         return {
-            now: moment().tz("Asia/Tokyo").format("ll"),
-            fileLists: fileLists,
-            result: null,
+            footer_info: process.env.FOOTER_COPYRIGHT,
+            look: 0, //いる？
+            dom_ids: [/*'#introduction',*/ '#blogs', '#top'],
+            fileListsValues: fileListsValues,
+            blogQuery: {
+                start: 0,
+                upto: 5,
+                limit: 5,
+                max: blogQueryLength
+            },
+            blogs: []
         }
     },
-    head () {
-        return {
-            titleTemplate: null,
-            title: "ZODIAC BLOG",
+    methods: {
+        getBlogs(query) {
+            this.blogQuery.start = query.start;
+            this.blogQuery.upto = query.upto;
+            this.blogs = this.fileListsValues.slice(query.start,query.upto);
+        },
+    },
+    mounted(){
+        if (window.innerHeight < window.innerWidth) {
+            this.blogQuery.limit = pcViewPageNum;
+            this.blogQuery.upto = pcViewPageNum;
+        } else {
+            this.blogQuery.limit = mobileViewPageNum;
+            this.blogQuery.upto = mobileViewPageNum;
         }
+        this.getBlogs(this.blogQuery);
     },
     components: {
-        defaultFooter, defaultHeader, newWave
+        OriginalPagination, Logo, ScrlArrow, InformationForm
     },
-    mounted() {
-        this.result = [];
-        Object.keys(fileLists).filter(file=>file!='config.vue'&&file!='index.vue').forEach(file=>{
-            axios.get(location.href+file.replace('.vue', '')).then(res=>{
-                var a = document.createElement('a');
-                a.innerHTML = res.data;
-                a.querySelectorAll('meta').forEach(h=>{
-                    if(h.dataset.hid=='og:description') {
-                        this.result.push({
-                            date: file.replace('.vue', ''),
-                            title: a.getElementsByTagName('title')[0].innerHTML.replace(' - ZODIAC BLOG', ''),
-                            category: h.content
-                        });
-                        this.result = this.result.sort(function(a, b){
-                            return new Date(a.date) - new Date(b.date);
-                        }).reverse();
-                    }
-                });
-            });
-        });
-    }
 }
-
 </script>
-
-
-
-<style>
-.list-info{
-    box-shadow: 5px 5px 0px 0px black;
-    /* background: darkgreen; */
-    /* background: MediumVioletRed; */
-    /* background: olivedrab; */
-    /* background: seagreen; */
-    /* background: teal; */
-    /* background: steelblue; */
-    background: linear-gradient(-45deg, darkslategray, black, darkslategray);
-    color: white;
-    padding: 2vw;
-    text-align: center;
-}
-.list-info-detail{
-    box-shadow: 5px 5px 0px 0px wheat;
-    background: white;
-    padding: 5vw;
-}
-.for-list{
-    display: flex;
-    margin: var(--font-size) 0 var(--font-size) 0;
-}
-@keyframes hid{
-    0%{opacity: 0;}
-    100%{opacity: 1;}
-}
-.colon0, .colon1, .colon2{
-    opacity: 0;
-    animation: hid 1s ease-in-out infinite;
-}
-.colon0{
-    animation-delay: 0.3s;
-}
-.colon1{
-    animation-delay: 0.6s;
-}
-.colon2{
-    animation-delay: 0.9s;
-}
-
-</style>

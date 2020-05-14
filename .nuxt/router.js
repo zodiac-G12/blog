@@ -3,66 +3,93 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _59133e47 = () => interopDefault(import('../pages/2019-09-20.vue' /* webpackChunkName: "pages/2019-09-20" */))
-const _5959b3cc = () => interopDefault(import('../pages/2019-09-25.vue' /* webpackChunkName: "pages/2019-09-25" */))
-const _5967cb4d = () => interopDefault(import('../pages/2019-09-26.vue' /* webpackChunkName: "pages/2019-09-26" */))
-const _5983fa4f = () => interopDefault(import('../pages/2019-09-28.vue' /* webpackChunkName: "pages/2019-09-28" */))
-const _432daeb6 = () => interopDefault(import('../pages/2019-10-03.vue' /* webpackChunkName: "pages/2019-10-03" */))
-const _433bc637 = () => interopDefault(import('../pages/2019-10-04.vue' /* webpackChunkName: "pages/2019-10-04" */))
-const _44f09ed6 = () => interopDefault(import('../pages/2019-10-14.vue' /* webpackChunkName: "pages/2019-10-14" */))
-const _d3b089a4 = () => interopDefault(import('../pages/config.vue' /* webpackChunkName: "pages/config" */))
+const _fdffd6fa = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
+const _276a62a8 = () => interopDefault(import('../pages/step0.vue' /* webpackChunkName: "pages/step0" */))
+const _27787a29 = () => interopDefault(import('../pages/step1.vue' /* webpackChunkName: "pages/step1" */))
+const _70db7552 = () => interopDefault(import('../pages/step10.vue' /* webpackChunkName: "pages/step10" */))
+const _278691aa = () => interopDefault(import('../pages/step2.vue' /* webpackChunkName: "pages/step2" */))
+const _2794a92b = () => interopDefault(import('../pages/step3.vue' /* webpackChunkName: "pages/step3" */))
+const _27a2c0ac = () => interopDefault(import('../pages/step4.vue' /* webpackChunkName: "pages/step4" */))
+const _27b0d82d = () => interopDefault(import('../pages/step5.vue' /* webpackChunkName: "pages/step5" */))
+const _27beefae = () => interopDefault(import('../pages/step6.vue' /* webpackChunkName: "pages/step6" */))
+const _27cd072f = () => interopDefault(import('../pages/step7.vue' /* webpackChunkName: "pages/step7" */))
+const _27db1eb0 = () => interopDefault(import('../pages/step8.vue' /* webpackChunkName: "pages/step8" */))
+const _27e93631 = () => interopDefault(import('../pages/step9.vue' /* webpackChunkName: "pages/step9" */))
 const _ac7bdcd4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+
+// TODO: remove in Nuxt 3
+const emptyFn = () => {}
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location, onComplete = emptyFn, onAbort) {
+  return originalPush.call(this, location, onComplete, onAbort)
+}
 
 Vue.use(Router)
 
 export const routerOptions = {
   mode: 'history',
-  base: decodeURI('/blog/'),
+  base: decodeURI('/'),
   linkActiveClass: 'nuxt-link-active',
   linkExactActiveClass: 'nuxt-link-exact-active',
   scrollBehavior,
 
   routes: [{
-      path: "/2019-09-20",
-      component: _59133e47,
-      name: "2019-09-20"
-    }, {
-      path: "/2019-09-25",
-      component: _5959b3cc,
-      name: "2019-09-25"
-    }, {
-      path: "/2019-09-26",
-      component: _5967cb4d,
-      name: "2019-09-26"
-    }, {
-      path: "/2019-09-28",
-      component: _5983fa4f,
-      name: "2019-09-28"
-    }, {
-      path: "/2019-10-03",
-      component: _432daeb6,
-      name: "2019-10-03"
-    }, {
-      path: "/2019-10-04",
-      component: _433bc637,
-      name: "2019-10-04"
-    }, {
-      path: "/2019-10-14",
-      component: _44f09ed6,
-      name: "2019-10-14"
-    }, {
-      path: "/config",
-      component: _d3b089a4,
-      name: "config"
-    }, {
-      path: "/",
-      component: _ac7bdcd4,
-      name: "index"
-    }],
+    path: "/privacy-policy",
+    component: _fdffd6fa,
+    name: "privacy-policy"
+  }, {
+    path: "/step0",
+    component: _276a62a8,
+    name: "step0"
+  }, {
+    path: "/step1",
+    component: _27787a29,
+    name: "step1"
+  }, {
+    path: "/step10",
+    component: _70db7552,
+    name: "step10"
+  }, {
+    path: "/step2",
+    component: _278691aa,
+    name: "step2"
+  }, {
+    path: "/step3",
+    component: _2794a92b,
+    name: "step3"
+  }, {
+    path: "/step4",
+    component: _27a2c0ac,
+    name: "step4"
+  }, {
+    path: "/step5",
+    component: _27b0d82d,
+    name: "step5"
+  }, {
+    path: "/step6",
+    component: _27beefae,
+    name: "step6"
+  }, {
+    path: "/step7",
+    component: _27cd072f,
+    name: "step7"
+  }, {
+    path: "/step8",
+    component: _27db1eb0,
+    name: "step8"
+  }, {
+    path: "/step9",
+    component: _27e93631,
+    name: "step9"
+  }, {
+    path: "/",
+    component: _ac7bdcd4,
+    name: "index"
+  }],
 
   fallback: false
 }
 
-export function createRouter() {
+export function createRouter () {
   return new Router(routerOptions)
 }
