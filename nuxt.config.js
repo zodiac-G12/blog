@@ -68,6 +68,7 @@ export default {
         lang: 'ja',
     },
     build: {
+        hardSource: true,
         /*
          ** You can extend webpack config here
          */
