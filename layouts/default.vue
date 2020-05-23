@@ -13,6 +13,7 @@ import highlight from 'highlight.js';
 
 //import marked from 'marked';
 
+// TODO marked-kaTex Horizontal development
 import katex from 'katex';
 import marked from 'marked-katex';
 
