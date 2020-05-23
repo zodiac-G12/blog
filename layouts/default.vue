@@ -11,7 +11,14 @@ import Vue from 'vue';
 import highlight from 'highlight.js';
 // ⚠   Look at file ~/node_modules/highlight.js/lib/index.js ⚠
 
-import marked from 'marked';
+//import marked from 'marked';
+
+import katex from 'katex';
+import marked from 'marked-katex';
+
+
+// import VueMathjax from 'vue-mathjax'
+// Vue.use(VueMathjax)
 
 export default {
     created: function(){
@@ -20,7 +27,8 @@ export default {
             langPrefix: '',
             highlight: function(code, lang) {
                 return highlight.highlightAuto(code, [lang]).value;
-            }
+            },
+            kaTex: katex
         });
     },
     async mounted(){

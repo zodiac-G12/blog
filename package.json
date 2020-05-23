@@ -18,7 +18,9 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "highlight.js": "^10.0.3",
+    "katex": "^0.11.1",
     "marked": "^1.0.0",
+    "marked-katex": "^0.3.8",
     "nuxt": "^2.0.0",
     "vue-smoothscroll": "^0.2.0"
   },

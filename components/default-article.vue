@@ -79,15 +79,15 @@ export default{
         objectMax(json) {
             const jok = Object.keys(json);
             const uptoLink = jok[jok.length - 1];
-            return `step${parseInt(uptoLink.split("step")[1]) + 1}`;
+            return `content${parseInt(uptoLink.split("content")[1]) + 1}`;
         },
         beforeLink(link) {
-            const result = `step${parseInt(link.split("step")[1]) - 1}`;
-            if (result=="step-1") return false;
+            const result = `content${parseInt(link.split("content")[1]) - 1}`;
+            if (result=="content0") return false;
             return result;
         },
         afterLink(link) {
-            const result = `step${parseInt(link.split("step")[1]) + 1}`;
+            const result = `content${parseInt(link.split("content")[1]) + 1}`;
             if (result==this.noExistLink) return false;
             return result;
         },

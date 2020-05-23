@@ -13,7 +13,7 @@ import marked from 'marked';
 export default{
     data: function() {
         return {
-            link: "step0",
+            link: "content1",
             prekiji:
 `
 ## 従来のブログよりグレードアップ

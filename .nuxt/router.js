@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _0d3192c4 = () => interopDefault(import('../pages/content1.vue' /* webpackChunkName: "pages/content1" */))
+const _0d3faa45 = () => interopDefault(import('../pages/content2.vue' /* webpackChunkName: "pages/content2" */))
 const _fdffd6fa = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
-const _276a62a8 = () => interopDefault(import('../pages/step0.vue' /* webpackChunkName: "pages/step0" */))
 const _27787a29 = () => interopDefault(import('../pages/step1.vue' /* webpackChunkName: "pages/step1" */))
 const _70db7552 = () => interopDefault(import('../pages/step10.vue' /* webpackChunkName: "pages/step10" */))
 const _278691aa = () => interopDefault(import('../pages/step2.vue' /* webpackChunkName: "pages/step2" */))
@@ -34,13 +35,17 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/content1",
+    component: _0d3192c4,
+    name: "content1"
+  }, {
+    path: "/content2",
+    component: _0d3faa45,
+    name: "content2"
+  }, {
     path: "/privacy-policy",
     component: _fdffd6fa,
     name: "privacy-policy"
-  }, {
-    path: "/step0",
-    component: _276a62a8,
-    name: "step0"
   }, {
     path: "/step1",
     component: _27787a29,

@@ -43,6 +43,7 @@ export default {
      */
     css: [
         {src: '~/node_modules/highlight.js/styles/ir-black.css', lang: 'css'},
+        {src: '~/node_modules/katex/dist/katex.min.css', lang: 'css'},
     ],
     /*
      ** Plugins to load before mounting the App
