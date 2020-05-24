@@ -149,7 +149,7 @@ export async function setContext (app, context) {
 
       payload: context.payload,
       error: context.error,
-      base: '/',
+      base: '/blog/',
       env: {"baseUrl":"https://zodiac-g12.github.io/blog","FOOTER_COPYRIGHT":"© ZODIAC-G12 2020"}
     }
     // Only set once

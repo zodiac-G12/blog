@@ -6,6 +6,9 @@ export default {
     /*
      ** Headers of the page
      */
+    router: {
+        base: '/blog/'
+    },
     env: {
         baseUrl: process.env.BASE_URL || 'http://localhost:3000',
         FOOTER_COPYRIGHT: FOOTER_COPYRIGHT
