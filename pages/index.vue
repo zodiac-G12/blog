@@ -20,8 +20,8 @@
                    class="articleItem" prefetch>
                     <div class="innerArticleItem">
                         <picture>
-                            <source type="image/webp" :srcset="'/'+(item.samn).split('.')[0]+'.webp'">
-                            <img alt="" :src="'/'+item.samn" decoding="async" style="width: 100%; margin: auto;border: none; box-shadow: none;"></img>
+                            <source type="image/webp" :srcset="'/blog/'+(item.samn).split('.')[0]+'.webp'">
+                            <img alt="" :src="'/blog/'+item.samn" decoding="async" style="width: 100%; margin: auto;border: none; box-shadow: none;"></img>
                         </picture>
                         <div style="position: absolute; bottom: 0px; width: 100%; padding: 10px;">
                             <div style="margin-bottom: 5px;">{{item.title}}</div>

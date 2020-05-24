@@ -12,8 +12,8 @@
                     {{time}}
                 </p>
                 <picture>
-                    <source type="image/webp" :srcset="'/'+(this.samn).split('.')[0]+'.webp'">
-                    <img alt="" :src="'/'+this.samn" style="width: 100%;max-width:50%; margin: auto"></img>
+                    <source type="image/webp" :srcset="'/blog/'+(this.samn).split('.')[0]+'.webp'">
+                    <img alt="" :src="'/blog/'+this.samn" style="width: 100%;max-width:50%; margin: auto"></img>
                 </picture>
             </h1>
             <div style="margin-top: 5vh; padding: 5vw; box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;" v-html="this.$props.content.kiji"></div>
