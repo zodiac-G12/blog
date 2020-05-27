@@ -8,7 +8,10 @@
         </div>
 
         <div id="blogs">
-            <h2 class="subtitle" style="color: black;">
+            <a href="https://h.accesstrade.net/sp/cc?rk=0100jbqe00kele" rel="nofollow">
+                <img src="https://h.accesstrade.net/sp/rr?rk=0100jbqe00kele" alt="アフィリエイトのアクセストレード" border="0" style="max-width:468px;"/>
+            </a>
+            <h2 class="subtitle" style="color: black; margin-top: 10vh;">
                 LATEST ARTICLES
             </h2>
             <div class="nyoibo" style="margin-bottom: 5%;"></div>

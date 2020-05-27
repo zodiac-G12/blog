@@ -1,1 +1,1 @@
-npm prune && git add --all && git commit -m jidou && git push && npm run generate && npm run deploy
+sudo npm prune && sudo git add --all && sudo git commit -m jidou && sudo git push && sudo npm run generate:master && sudo npm run deploy

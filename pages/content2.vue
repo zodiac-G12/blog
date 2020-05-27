@@ -33,6 +33,12 @@ export default{
 汎用的な概念を抽象化し、モデル化して定式化した。
 コンピュータをやる人間にとっては尊敬の対象である。
 
+<center>
+<a href="https://h.accesstrade.net/sp/cc?rk=0100n6l400kele" rel="nofollow">
+<img src="https://h.accesstrade.net/sp/rr?rk=0100n6l400kele" alt="アクセストレード パートナーサイト募集" border="0" style="max-width: 300px;"/>
+</a>
+</center>
+
 ## 情報量とエントロピー
 
 　情報工学専攻の学生ならば、絶対に知っているものであると思うが、
@@ -44,7 +50,7 @@ export default{
 
 　確率事象Eが生起したことを知ったとき,
 
-\`$$I(E)=-log_2P(E)　[bit]$$\`
+\`$$I(E)=-\\log_2P(E)　[bit]$$\`
 
 の __情報量__ (amount of information) を受け取ったという.
 
@@ -56,7 +62,7 @@ export default{
 
 よって
 
-\`$$I(E_1)=-log_2\\frac{1}{2} = 1　[bit]$$\`
+\`$$I(E_1)=-\\log_2\\frac{1}{2} = 1　[bit]$$\`
 
 これから考えると、確率が増える毎に情報量は減少することがわかる。
 
@@ -69,7 +75,7 @@ export default{
 これを \`$H(S)$\` で表す.
 　特に記憶のない離散的情報源では,
 
-\`$$H(S)=\\sum_{i=0}^{r}P(s_i)log_2\\frac{1}{P(s_i)}　[bit / symbol]$$\`
+\`$$H(S)=\\sum_{i=0}^{r}P(s_i)\\log_2\\frac{1}{P(s_i)}　[bit / symbol]$$\`
 
 である.
 
@@ -78,6 +84,12 @@ export default{
 　エントロピーとは熱力学の言葉で、力学系の有する無秩序さの度合いを表す量である。
 統計力学的見地では、断熱的可逆変化においては系全体のエントロピーは不変に保たれる。
 断熱的不可逆変化では、系全体のエントロピーは絶対的に増大する。聞いたことあるでしょう。
+
+<center>
+<a href="https://h.accesstrade.net/sp/cc?rk=0100n6l400kele" rel="nofollow">
+<img src="https://h.accesstrade.net/sp/rr?rk=0100n6l400kele" alt="アクセストレード パートナーサイト募集" border="0" style="max-width: 300px;"/>
+</a>
+</center>
 
 ## なんでlogなんだろう
 
@@ -103,7 +115,7 @@ export default{
 \`$$I(P_3)=I(P_1)+I(P_2)$$\`
 
 なる2つの条件を満たす関数は
-\`$$I(P)=-klog_2P$$\`
+\`$$I(P)=-k\\log_2P$$\`
 に限られる.ここで \`$k$\` は正の定数である.
 
 ---
