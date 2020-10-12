@@ -62,7 +62,7 @@ export default {
             footer_info: process.env.FOOTER_COPYRIGHT,
             look: 0, //いる？
             dom_ids: [/*'#introduction',*/ '#blogs', '#top'],
-            fileListsValues: fileListsValues,
+            fileListsValues: fileListsValues.reverse(),
             blogQuery: {
                 start: 0,
                 upto: 5,
@@ -76,7 +76,7 @@ export default {
         getBlogs(query) {
             this.blogQuery.start = query.start;
             this.blogQuery.upto = query.upto;
-            this.blogs = this.fileListsValues.reverse().slice(query.start,query.upto);
+            this.blogs = this.fileListsValues.slice(query.start,query.upto);
         },
     },
     mounted(){
