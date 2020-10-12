@@ -1,1 +1,1 @@
-sudo npm prune && sudo npm run generate:master && sudo git add --all && sudo git commit -m jidou && sudo git push && sudo npm run deploy
+npm prune && npm run generate:master && git add --all && git commit -m RunAutoDeployScript && git push && npm run deploy

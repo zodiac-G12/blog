@@ -3,10 +3,13 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _0d3192c4 = () => interopDefault(import('../pages/content1.vue' /* webpackChunkName: "pages/content1" */))
-const _0d3faa45 = () => interopDefault(import('../pages/content2.vue' /* webpackChunkName: "pages/content2" */))
-const _fdffd6fa = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
-const _ac7bdcd4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _0cd788bd = () => interopDefault(import('../pages/content1.vue' /* webpackChunkName: "pages/content1" */))
+const _0ce5a03e = () => interopDefault(import('../pages/content2.vue' /* webpackChunkName: "pages/content2" */))
+const _0cf3b7bf = () => interopDefault(import('../pages/content3.vue' /* webpackChunkName: "pages/content3" */))
+const _0d01cf40 = () => interopDefault(import('../pages/content4.vue' /* webpackChunkName: "pages/content4" */))
+const _0d0fe6c1 = () => interopDefault(import('../pages/content5.vue' /* webpackChunkName: "pages/content5" */))
+const _3b89ebbc = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
+const _08f8f386 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -26,19 +29,31 @@ export const routerOptions = {
 
   routes: [{
     path: "/content1",
-    component: _0d3192c4,
+    component: _0cd788bd,
     name: "content1"
   }, {
     path: "/content2",
-    component: _0d3faa45,
+    component: _0ce5a03e,
     name: "content2"
   }, {
+    path: "/content3",
+    component: _0cf3b7bf,
+    name: "content3"
+  }, {
+    path: "/content4",
+    component: _0d01cf40,
+    name: "content4"
+  }, {
+    path: "/content5",
+    component: _0d0fe6c1,
+    name: "content5"
+  }, {
     path: "/privacy-policy",
-    component: _fdffd6fa,
+    component: _3b89ebbc,
     name: "privacy-policy"
   }, {
     path: "/",
-    component: _ac7bdcd4,
+    component: _08f8f386,
     name: "index"
   }],
 

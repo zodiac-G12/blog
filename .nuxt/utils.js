@@ -150,7 +150,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: '/blog/',
-      env: {"baseUrl":"https://zodiac-g12.github.io/blog","FOOTER_COPYRIGHT":"© ZODIAC-G12 2020"}
+      env: {"baseUrl":"http://localhost:3000"}
     }
     // Only set once
     if (context.req) {

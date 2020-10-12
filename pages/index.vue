@@ -76,7 +76,7 @@ export default {
         getBlogs(query) {
             this.blogQuery.start = query.start;
             this.blogQuery.upto = query.upto;
-            this.blogs = this.fileListsValues.slice(query.start,query.upto);
+            this.blogs = this.fileListsValues.reverse().slice(query.start,query.upto);
         },
     },
     mounted(){

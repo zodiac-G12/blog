@@ -33,11 +33,6 @@ export default{
 汎用的な概念を抽象化し、モデル化して定式化した。
 コンピュータをやる人間にとっては尊敬の対象である。
 
-<center>
-<a href="https://h.accesstrade.net/sp/cc?rk=0100n6l400kele" rel="nofollow">
-<img src="https://h.accesstrade.net/sp/rr?rk=0100n6l400kele" alt="アクセストレード パートナーサイト募集" border="0" style="max-width: 300px;"/>
-</a>
-</center>
 
 ## 情報量とエントロピー
 
@@ -85,11 +80,6 @@ export default{
 統計力学的見地では、断熱的可逆変化においては系全体のエントロピーは不変に保たれる。
 断熱的不可逆変化では、系全体のエントロピーは絶対的に増大する。聞いたことあるでしょう。
 
-<center>
-<a href="https://h.accesstrade.net/sp/cc?rk=0100n6l400kele" rel="nofollow">
-<img src="https://h.accesstrade.net/sp/rr?rk=0100n6l400kele" alt="アクセストレード パートナーサイト募集" border="0" style="max-width: 300px;"/>
-</a>
-</center>
 
 ## なんでlogなんだろう
 
