@@ -46,7 +46,7 @@
 <script>
 import fileLists from '~/components/fileLists.json';
 const OriginalPagination = () => import('~/components/original-pagination.vue');
-const Logo = () => import('~/components/logo.vue');
+const Logo = () => import('~/components/nuxt-logo.vue');
 const ScrlArrow = () => import('~/components/scrl-arrow.vue');
 const InformationForm = () => import('~/components/information-form.vue');
 
