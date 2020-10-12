@@ -8,6 +8,7 @@ const _0ce5a03e = () => interopDefault(import('../pages/content2.vue' /* webpack
 const _0cf3b7bf = () => interopDefault(import('../pages/content3.vue' /* webpackChunkName: "pages/content3" */))
 const _0d01cf40 = () => interopDefault(import('../pages/content4.vue' /* webpackChunkName: "pages/content4" */))
 const _0d0fe6c1 = () => interopDefault(import('../pages/content5.vue' /* webpackChunkName: "pages/content5" */))
+const _0d1dfe42 = () => interopDefault(import('../pages/content6.vue' /* webpackChunkName: "pages/content6" */))
 const _3b89ebbc = () => interopDefault(import('../pages/privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
 const _08f8f386 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -47,6 +48,10 @@ export const routerOptions = {
     path: "/content5",
     component: _0d0fe6c1,
     name: "content5"
+  }, {
+    path: "/content6",
+    component: _0d1dfe42,
+    name: "content6"
   }, {
     path: "/privacy-policy",
     component: _3b89ebbc,

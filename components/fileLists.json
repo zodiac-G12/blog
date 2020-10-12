@@ -3,5 +3,6 @@
     "content2": {"title": "情報理論の謎", "samn": "nuxt.jpeg", "time": "2020年5月24日 公開", "link": "content2"},
     "content3": {"title": "Rustで標準入力して二値加算", "samn": "rust-social-wide.jpg", "time": "2020年10月11日 公開", "link": "content3"},
     "content4": {"title": "RustでFibonacci数の183番目", "samn": "rust-social-wide.jpg", "time": "2020年10月11日 公開", "link": "content4"},
-    "content5": {"title": "WebP変換シェルスクリプト", "samn": "webp.png", "time": "2020年10月12日 公開", "link": "content5"}
+    "content5": {"title": "WebP変換シェルスクリプト", "samn": "webp.png", "time": "2020年10月12日 公開", "link": "content5"},
+    "content6": {"title": "Commit AuthorとCommit Email変更", "samn": "Git.png", "time": "2020年10月12日 公開", "link": "content6"}
 }
