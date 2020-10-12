@@ -1,5 +1,5 @@
 <template>
-    <div class="logo">
+  <div class="logo">
         <div class="triangle2"></div>
         <div class="triangle1"></div>
         <div class="triangle3"></div>
