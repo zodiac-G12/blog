@@ -1,10 +1,10 @@
 <template>
-    <div class="logo">
-        <div class="triangle2"></div>
-        <div class="triangle1"></div>
-        <div class="triangle3"></div>
-        <div class="triangle4"></div>
-    </div>
+  <div class="logo">
+    <div class="triangle2"></div>
+    <div class="triangle1"></div>
+    <div class="triangle3"></div>
+    <div class="triangle4"></div>
+  </div>
 </template>
 
 <style>
