@@ -60,11 +60,11 @@ statusLights[x][y] = ~statusLights[x][y] & 1;
 
 ## React
 　JavaScriptのライブラリ。
-https://ja.reactjs.org/
+> https://ja.reactjs.org/
 
 ## ThreeJS
-　JavaScript3Dライブラリ。今回使ったのは、ThreeJSおよびreact-native用のReactレンダラーの**"react-three-fiber"** です。
-https://github.com/pmndrs/react-three-fiber
+　JavaScript3Dライブラリ。今回使ったのは、ThreeJSおよびreact-native用のReactレンダラーの**"react-three-fiber"**というものである。
+> https://github.com/pmndrs/react-three-fiber
 
 <center style="">
 <img alt="" style="max-width: 400px;" src="https://camo.githubusercontent.com/632c34fc980c96c6aa6e8317fa2d3567e37c2ece0a8ad12c3c13b700d074562c/68747470733a2f2f692e696d6775722e636f6d2f53485068496c732e676966"></img>
@@ -72,7 +72,7 @@ https://github.com/pmndrs/react-three-fiber
 <img alt="" style="max-width: 400px;" src="https://camo.githubusercontent.com/6c567b130ef83a0fa77b6651a16e71a9d539fd58e897533e68cc44dc9f878a79/68747470733a2f2f692e696d6775722e636f6d2f587363735767752e676966"></img>
 </center>
 
-以下の&lt;Canvas&gt;コンポーネントやuseFrameカスタムフックを用いることで大体のやりたい事ができると考えている。
+以下の **&lt;Canvas&gt;コンポーネント** や **useFrameカスタムフック** を用いることで大体のやりたい事ができると考えている。
 
 \`\`\`typescript
 import { Canvas, useFrame } from 'react-three-fiber'
@@ -193,7 +193,7 @@ meshのonClick()が発火した際に、onClick内でステートフックを呼
 私の実装では差別化を主張できる点がある。
 「SHOW ANSWER」というボタンをクリックすることで、全部消灯するのに必要な、タップするべき場所のマス(ブロック)が回転するという機能である。
 
-回答を求めるアルゴリズムについては、線形代数の初歩的な素養を要求するので、今回は割愛する。
+回答を求めるアルゴリズムについては、線形代数の初歩的な素養を要求し、複雑で長くなってしまうため今回は割愛する。
 `
         }
     },
