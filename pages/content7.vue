@@ -67,9 +67,9 @@ statusLights[x][y] = ~statusLights[x][y] & 1;
 > https://github.com/pmndrs/react-three-fiber
 
 <center>
-<img alt="" style="max-width: 400px;" src="https://camo.githubusercontent.com/632c34fc980c96c6aa6e8317fa2d3567e37c2ece0a8ad12c3c13b700d074562c/68747470733a2f2f692e696d6775722e636f6d2f53485068496c732e676966"></img>
-<img alt="" style="max-width: 400px;" src="https://camo.githubusercontent.com/8811bfbd8a64ae0fd0a68fc486d9d39c64828eb2dccee73af57bb18b18911897/68747470733a2f2f692e696d6775722e636f6d2f64614a494456452e676966"></img>
-<img alt="" style="max-width: 400px;" src="https://camo.githubusercontent.com/6c567b130ef83a0fa77b6651a16e71a9d539fd58e897533e68cc44dc9f878a79/68747470733a2f2f692e696d6775722e636f6d2f587363735767752e676966"></img>
+<img alt="" width="" height="" style="max-width: 400px;" src="https://camo.githubusercontent.com/632c34fc980c96c6aa6e8317fa2d3567e37c2ece0a8ad12c3c13b700d074562c/68747470733a2f2f692e696d6775722e636f6d2f53485068496c732e676966"></img>
+<img alt="" width="" height="" style="max-width: 400px;" src="https://camo.githubusercontent.com/8811bfbd8a64ae0fd0a68fc486d9d39c64828eb2dccee73af57bb18b18911897/68747470733a2f2f692e696d6775722e636f6d2f64614a494456452e676966"></img>
+<img alt="" width="" height="" style="max-width: 400px;" src="https://camo.githubusercontent.com/6c567b130ef83a0fa77b6651a16e71a9d539fd58e897533e68cc44dc9f878a79/68747470733a2f2f692e696d6775722e636f6d2f587363735767752e676966"></img>
 </center>
 
 以下の **&lt;Canvas&gt;コンポーネント** や **useFrameカスタムフック** を用いることで大体のやりたい事ができると考えている。
@@ -91,7 +91,7 @@ import { Canvas, useFrame } from 'react-three-fiber'
 
 react-three-fiberで用いる際は以下のように書くことで実現した。
 
-\`\`\`typescript
+\`\`\`javascript
 import { useEffect } from 'react';
 
 import { extend, useThree } from 'react-three-fiber';
@@ -186,7 +186,7 @@ meshのonClick()が発火した際に、onClick内でステートフックを呼
 > リンク: https://zodiac-g12.github.io/lightouts/
 
 <center>
-<iframe style="width:40vw; height:25vw" src="https://zodiac-g12.github.io/lightouts/"></iframe>
+<iframe title="lightouts" style="width:40vw; height:25vw" src="https://zodiac-g12.github.io/lightouts/"></iframe>
 </center>
 
 ライツアウトの実装はインターネット上によくあるが、

@@ -70,6 +70,14 @@ export default {
     manifest: {
         name: "ZODIAC BLOG",
         lang: 'ja',
+        title: "ZODIAC BLOG",
+        description: "技術・学問に関する投稿サイト",
+        "og:title": "ZODIAC BLOG",
+        "og:description": "技術・学問に関する投稿サイト",
+        theme_color: "#FFFFFF",
+        background_color: "#FFFFFF",
+        start_url: "/blog/",
+        scope: "/blog/"
     },
     build: {
         hardSource: true,
