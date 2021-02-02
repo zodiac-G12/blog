@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "rm -rf dist && nuxt generate",
     "my-plop": "ts-node myPlop.ts",
     "build:master": "DEPLOY_ENV=MASTER nuxt build",
     "generate:master": "DEPLOY_ENV=MASTER nuxt generate",
