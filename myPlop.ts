@@ -66,9 +66,9 @@ const comment = `
 
     const fileContent = fs.readFileSync('./templates/contentX.vue', 'utf8').replace("contentX", `content${contentCount + 1}`);
 
-    fs.writeFileSync(`./pages/${newFile}`, fileContent, 'utf8');
-
     const userInput = await readUserInput({color: green, content: comment});
+
+    fs.writeFileSync(`./pages/${newFile}`, fileContent, 'utf8');
 
     log({color: blue, content: userInput});
 
