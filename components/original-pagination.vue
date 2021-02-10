@@ -96,12 +96,12 @@ export default{
 
 .pagination-block, .pagination-block-highlight, .point{
   padding: auto;
-  margin: 2.5px;
-  line-height: 3vh;
-  width: 3vh;
-  height: 3vh;
+  margin: 0.5vh;
+  line-height: 5vh;
+  width: 5vh;
+  height: 5vh;
   text-align: center;
-  border-radius: 10%;
+  /* border-radius: 2px; */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -109,35 +109,37 @@ export default{
 }
 
 .pagination-block{
-  border: solid 1px gray;
-  box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh darkslategray;
+  border: solid 1px darkslategray;
+  box-shadow: 0 0 0.125vh 0.025vh darkslategray;
 }
 
 .pagination-block, .pagination-block-highlight{
-  font-size: 50%;
+  font-size: 70%;
 }
 
 .pagination-block, .point{
-  color: darkslategray;
+  color: black;
 }
 
 .pagination-block:hover{
-  opacity: 0.5;
+  opacity: 0.7;
   background: dodgerblue;
+  border: solid 1px midnightblue;
+  box-shadow: 0 0 0.125vh 0.025vh mediumblue;
   color: black;
 }
 
 .pagination-block-highlight{
-  opacity: 0.7;
+  opacity: 0.9;
   background: midnightblue;
   border: solid 1px midnightblue;
-  box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh mediumblue, -0.025vh -0.025vh 0.125vh 0.025vh mediumblue;
+  box-shadow: 0 0 0.125vh 0.025vh mediumblue;
   color: white;
 }
 
 .point{
   border: solid 1px white;
-  box-shadow: 0.025vh 0.025vh 0.125vh 0.025vh white;
+  box-shadow: 0 0 0.125vh 0.025vh white;
   opacity: 0.8;
 }
 </style>
