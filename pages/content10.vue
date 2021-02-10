@@ -18,6 +18,9 @@ export default{
             link: "content10",
             prekiji:
 `
+## 内容
+　GlaphQL APIでDBアクセスを大量に発生させる攻撃手法について、公式ドキュメントや参考記事をもとに、実際に攻撃が可能なのか確かめてみたという記事。
+
 ## 想定読者
 　GlaphQLについて興味があり、ある程度の知識がある人。JavaScriptについてある程度知識がある人。
 
