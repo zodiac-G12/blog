@@ -185,10 +185,6 @@ meshのonClick()が発火した際に、onClick内でステートフックを呼
 
 > リンク: https://zodiac-g12.github.io/lightouts/
 
-<center>
-<iframe title="lightouts" style="width:40vw; height:25vw" src="https://zodiac-g12.github.io/lightouts/"></iframe>
-</center>
-
 ライツアウトの実装はインターネット上によくあるが、
 私の実装では差別化を主張できる点がある。
 「SHOW ANSWER」というボタンをクリックすることで、全部消灯するのに必要な、タップするべき場所のマス(ブロック)が回転するという機能である。

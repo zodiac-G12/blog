@@ -155,8 +155,6 @@ import marked from 'marked-katex';
 - サイト: https://zodiac-g12.github.io/SVIDE/
 - ソースコード: https://github.com/zodiac-G12/SVIDE
 
-<iframe style="width: 80vw; height: 80vh;" src="https://zodiac-g12.github.io/SVIDE/"></iframe>
-
 ## Svelteを触ってみた感想
 　体感だが、めちゃくちゃ軽くて、めちゃくちゃ速い。
 
