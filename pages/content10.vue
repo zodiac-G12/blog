@@ -19,10 +19,10 @@ export default{
             prekiji:
 `
 ## 内容
-　GlaphQL APIでDBアクセスを大量に発生させる攻撃手法について、公式ドキュメントや参考記事をもとに、実際に攻撃が可能なのか確かめてみたという記事。
+　GraphQL APIでDBアクセスを大量に発生させる攻撃手法について、公式ドキュメントや参考記事をもとに、実際に攻撃が可能なのか確かめてみたという記事。
 
 ## 想定読者
-　GlaphQLについて興味があり、ある程度の知識がある人。JavaScriptについてある程度知識がある人。
+　GraphQLについて興味があり、ある程度の知識がある人。JavaScriptについてある程度知識がある人。
 
 ## 動機
 　ある記事を読んでいて、気になったと同時に、全く考慮したことがない事柄で青ざめたので、実際に実装して試してみたかった。
@@ -32,7 +32,7 @@ export default{
 
 ## 使用したモジュール
 - [apollo-server](https://www.apollographql.com/)
-- [graphq](https://graphql.org/)
+- [graphql](https://graphql.org/)
 
 ## 実装
 　[公式](https://www.apollographql.com/docs/apollo-server/data/resolvers/)を参考にして以下のように実装する。
@@ -140,7 +140,7 @@ server.listen().then(({ url }) => {
 
 重要なのは、BookとAuthorが互いに相互参照している点である。
 
-これは公式GlaphQLのベストプラクティスの、
+これは公式GraphQLのベストプラクティスの、
 
 bookがauthorのidなりを持っていなるなら、authorの実体を引けるようにする方が良いという思想に基づいている。
 
@@ -223,7 +223,7 @@ query {
 故にこのままの仕組みで表に出すと非常に危険なことがわかる。
 
 ## 危険性
-　例えば具体的な話で、「あのGlaphQL使っているサービスを潰したい」と思ったとして、
+　例えば具体的な話で、「あのGraphQL使っているサービスを潰したい」と思ったとして、
 
 この攻撃に関して対策がされていないと、DBアクセスを大量にして、
 
