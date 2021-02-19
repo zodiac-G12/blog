@@ -17,6 +17,14 @@
         </picture>
       </h1>
       <div style="margin-top: 5vh; padding: 5vw; box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;" v-html="this.$props.content.kiji"></div>
+      <h3 style="text-align: center">↓よろしければコメントをください↓</h3>
+      <script src="https://utteranc.es/client.js"
+        repo="zodiac-G12/blog"
+        issue-term="pathname"
+        theme="github-dark-orange"
+        crossorigin="anonymous"
+        async>
+      </script>
     </main>
     <center style="margin-bottom: 10vh;">
       <nuxt-link id="blink" v-if="this.beforeLink(this.url)" style="font-size: 80%; margin-right: 2vw" :to="'../'+this.beforeLink(this.url)">
