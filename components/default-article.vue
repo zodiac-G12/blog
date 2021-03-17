@@ -18,6 +18,7 @@
       </h1>
       <div style="margin-top: 5vh; padding: 5vw; box-shadow: 0.1vh 0.1vh 0.5vh 0.1vh black;" v-html="this.$props.content.kiji"></div>
       <h3 style="text-align: center">↓よろしければコメントをください↓</h3>
+      <!-- style lists -->
       <script src="https://utteranc.es/client.js"
         repo="zodiac-G12/blog"
         issue-term="pathname"
@@ -84,21 +85,21 @@ export default{
     linkTitle(link) {
       return link ? fileLists[link].title : "";
     },
-      objectMax(json) {
-        const jok = Object.keys(json);
-        const uptoLink = jok[jok.length - 1];
-        return `content${parseInt(uptoLink.split("content")[1]) + 1}`;
-      },
-      beforeLink(link) {
-        const result = `content${parseInt(link.split("content")[1]) - 1}`;
-        if (result=="content0") return false;
-        return result;
-      },
-      afterLink(link) {
-        const result = `content${parseInt(link.split("content")[1]) + 1}`;
-        if (result==this.noExistLink) return false;
-        return result;
-      },
+    objectMax(json) {
+      const jok = Object.keys(json);
+      const uptoLink = jok[jok.length - 1];
+      return `content${parseInt(uptoLink.split("content")[1]) + 1}`;
+    },
+    beforeLink(link) {
+      const result = `content${parseInt(link.split("content")[1]) - 1}`;
+      if (result=="content0") return false;
+      return result;
+    },
+    afterLink(link) {
+      const result = `content${parseInt(link.split("content")[1]) + 1}`;
+      if (result==this.noExistLink) return false;
+      return result;
+    },
   },
   async mounted() {
     if (!process.client) {
@@ -132,3 +133,19 @@ export default{
 }
 
 </script>
+
+
+<style>
+/* .utterances { */
+/*   font-size: calc(var(--font-size) * 0.5); */
+/*   background: red; */
+/* } */
+/* .form-control, .form-select { */
+/* } */
+/*  */
+/* .btn { */
+/* } */
+/*  */
+/* .tabnav-tab { */
+/* } */
+</style>
