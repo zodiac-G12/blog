@@ -41,7 +41,7 @@ export default{
 
 1. コンパクト符号
 2. 特許がない
-3. JPEG,ZIP(Delate)で使われている
+3. JPEG,ZIP(Deflate)で使われている
 
 > wikipedia: [ハフマン符号](https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%95%E3%83%9E%E3%83%B3%E7%AC%A6%E5%8F%B7#:~:text=%E3%83%8F%E3%83%95%E3%83%9E%E3%83%B3%E7%AC%A6%E5%8F%B7%EF%BC%88%E3%83%8F%E3%83%95%E3%83%9E%E3%83%B3%E3%81%B5%E3%81%94%E3%81%86,%E3%81%AA%E3%81%A9%E3%81%AB%E4%BD%BF%E7%94%A8%E3%81%95%E3%82%8C%E3%82%8B%E3%80%82)
 
@@ -64,7 +64,7 @@ export default{
 　特許がないので、JPEGや、ZIPでも採用されている。
 
 ---
-### 3. JPEG,ZIP(Delate)で使われている
+### 3. JPEG,ZIP(Deflate)で使われている
 
 - JPEG
 
