@@ -8,6 +8,7 @@ const _e3d5ed7a = () => interopDefault(import('../pages/content10.vue' /* webpac
 const _e3b9be78 = () => interopDefault(import('../pages/content11.vue' /* webpackChunkName: "pages/content11" */))
 const _e39d8f76 = () => interopDefault(import('../pages/content12.vue' /* webpackChunkName: "pages/content12" */))
 const _e3816074 = () => interopDefault(import('../pages/content13.vue' /* webpackChunkName: "pages/content13" */))
+const _e3653172 = () => interopDefault(import('../pages/content14.vue' /* webpackChunkName: "pages/content14" */))
 const _0ce5a03e = () => interopDefault(import('../pages/content2.vue' /* webpackChunkName: "pages/content2" */))
 const _0cf3b7bf = () => interopDefault(import('../pages/content3.vue' /* webpackChunkName: "pages/content3" */))
 const _0d01cf40 = () => interopDefault(import('../pages/content4.vue' /* webpackChunkName: "pages/content4" */))
@@ -55,6 +56,10 @@ export const routerOptions = {
     path: "/content13",
     component: _e3816074,
     name: "content13"
+  }, {
+    path: "/content14",
+    component: _e3653172,
+    name: "content14"
   }, {
     path: "/content2",
     component: _0ce5a03e,
