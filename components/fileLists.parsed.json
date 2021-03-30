@@ -76,5 +76,17 @@
     "samn": "huffman.png",
     "time": "2021年3月17日公開",
     "link": "content13"
+  },
+  "content14": {
+    "title": "数学オリンピックの問題をRustで解く",
+    "samn": "rust-social-wide.jpg",
+    "time": "2021年3月23日公開",
+    "link": "content14"
+  },
+  "content15": {
+    "title": "Svelte で TODO アプリを作った",
+    "samn": "nuxt.jpeg",
+    "time": "2021年3月29日公開",
+    "link": "content15"
   }
 }
